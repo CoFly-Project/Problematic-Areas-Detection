@@ -5,18 +5,21 @@
 
 This module detects problematic areas of a field and extracts their location based on a given vegetation index of the examined field region. As problematic are considered areas with lowest index values.
 
-<img src="https://user-images.githubusercontent.com/26482319/114688051-021d0200-9d1d-11eb-9e08-3b921a7384ee.jpg"/>
+![areas](https://user-images.githubusercontent.com/26482319/114700280-01d73380-9d2a-11eb-891f-8ee0f4e47593.jpg)
+
 
 ## How to run
 ```
-python3 ares_dection.py
+python3 areas_dection.py
 ```
 
 ## Dependencies 
 Install all the neccecary dependencies using ```pip3 install <package name>```
   
 Required packages:
-  * numpy   
+  * cv
+  * numpy
+  * sklearn   
   
 
 ## Citation
