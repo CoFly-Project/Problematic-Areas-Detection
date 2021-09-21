@@ -11,102 +11,11 @@ from sklearn.metrics import silhouette_score
 from sklearn.metrics import calinski_harabasz_score
 
 
-class Indexes:
-    def __init__(self, img):
-        self.img = img
-        # self.img = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
-        self.R = self.img[:, :, 2].astype(np.float32)
-        self.G = self.img[:, :, 1].astype(np.float32)
-        self.B = self.img[:, :, 0].astype(np.float32)
-
-    def VARI(self):
-        vari = np.divide((self.G - self.R), (self.G + self.R - self.B + 0.00001))
-        return np.clip(vari, -1, 1)
-
-    def GLI(self):
-        gli = np.divide((2 * self.G - self.R - self.B), (2 * self.G + self.R + self.B + 0.00001))
-        return np.clip(gli, -1, 1)
-
-    def Visual_NDVI(self):  # Normalized green red difference index
-        v_ndvi = np.divide((self.G - self.R), (self.G + self.R + 0.00001))
-        return np.clip(v_ndvi, -1, 1)
-
-    def NGBDI(self):
-        ngbdi = (self.G - self.B) / (self.G + self.B + 0.00001)
-        ngbdi = np.clip(ngbdi, -1, +1)
-        return ngbdi
-
-    def TGI(self):
-        tgi = -0.5 * (190 * (self.R - self.G) - 120 * (self.R - self.B))  # Triangular greenness index
-        # tgi = np.clip(tgi, -1, +1)
-        # return tgi
-        mask = np.not_equal(self.G - self.R + self.B - 255.0, 0.0)
-        tgi = np.choose(mask, (-9999.0, np.subtract(self.G, np.multiply(0.39, self.R), np.multiply(0.61, self.B))))
-        tgi = tgi / 127 - 1
-        return np.clip(tgi, -1, 1)
-
-    def get_index(self, index_name):
-        if index_name == 'vari':
-            return self.VARI()
-        elif index_name == 'gli':
-            return self.GLI()
-        elif index_name == 'vndvi':
-            return self.Visual_NDVI()
-        elif index_name == 'ngbdi':
-            return self.NGBDI()
-        elif index_name == 'tgi':
-            return self.TGI()
-        else:
-            print('Uknown index')
-
-
-def find_real_min_max(perc, edges, index_clear):
-    mask = perc > (0.05 * len(index_clear))
-    edges = edges[:-1]
-    min_v = edges[mask].min()
-    max_v = edges[mask].max()
-    return min_v, max_v
-
-
-def mask_empty_space(img):
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
-
-    # Close contour
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
-    close = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel, iterations=1)
-
-    # Find outer contour and fill with white
-    cnts = cv2.findContours(close, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    cnts = cnts[0] if len(cnts) == 2 else cnts[1]
-    cv2.fillPoly(close, cnts, [255, 255, 255])
-
-    img = img.astype(np.float)
-    img[close == 0] = np.nan
-    return img
-
 
 def threshold_index(index, tresh_value):
     _, areas_mask = cv2.threshold(index, tresh_value, 1, cv2.THRESH_BINARY_INV)
     areas_mask[areas_mask > 0] = 255
     return areas_mask
-
-
-def mask_empty_space(img):
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
-    # Close contour
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
-    close = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel, iterations=1)
-
-    # Find outer contour and fill with white
-    cnts = cv2.findContours(close, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    cnts = cnts[0] if len(cnts) == 2 else cnts[1]
-    cv2.fillPoly(close, cnts, [255, 255, 255])
-
-    img = img.astype(np.float)
-    img[close == 0] = np.nan
-    return img
 
 
 def find_optimal_K(centers, num_pixels):
