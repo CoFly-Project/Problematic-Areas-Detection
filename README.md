@@ -40,6 +40,8 @@ binding, etc.). After downloading the correct version of .whl package based on t
 ```
 ~PATH_TO_WHL_PACKAGE python.exe -m pip install GDAL-X.X.X-cpXX-cpXXm-win_amd64.whl
 ```
-
+To finalize the installation, it's necessary to define a new Windows environment variables named GDAL_DATA and pointing the directory ```C:\Program Files\GDAL\gdal-data``` and PROJ_LIB pointing ```C:\Program Files\GDAL\projlib```.
+  
+  
 ## Citation
 (not published yet)
