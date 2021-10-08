@@ -125,8 +125,6 @@ def winapi_path(dos_path, encoding=None):
 img_path = winapi_path(sys.argv[1])
 save_dir = winapi_path(sys.argv[2])
 images_dir = winapi_path(sys.argv[3])
-os.environ['GDAL_DATA'] = './gdal'
-os.environ['PROJ_LIB'] = './proj'
 
 lat_lon_imgs = []
 for image in os.listdir(images_dir):
