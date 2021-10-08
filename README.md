@@ -26,8 +26,7 @@ Required packages:
   * exif 
   * json
   * pandas  
-  * sklearn 
-  * sklearn
+  * scikit-learn
   * gdal
 
 ## How to install [GDAL](https://gdal.org)
