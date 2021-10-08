@@ -10,17 +10,29 @@ This module detects problematic areas of a field and extracts their location bas
 
 ## How to run
 ```
-python3 areas_dection.py
+python3 areas_dection.py ~IMAGE_PATH ~FOLDER_PATH ~IMAGES_DIR_PATH
 ```
+
+  
 
 ## Dependencies 
 Install all the neccecary dependencies using ```pip3 install <package name>```
   
 Required packages:
-  * cv
+  * opencv-python
   * numpy
-  * sklearn   
+  * scipy  
+  * skimage
+  * exif 
+  * json
+  * pandas  
+  * sklearn 
+  * sklearn
+  * gdal
+
+## How to install [GDAL](https://gdal.org)
   
+  On Windows, the most easiest way to install GDAL Python Binding is to use the packages build by Christoph Gohlke and available here. 
 
 ## Citation
 (not published yet)
