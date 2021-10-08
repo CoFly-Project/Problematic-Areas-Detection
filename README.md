@@ -31,8 +31,13 @@ Required packages:
   * gdal
 
 ## How to install [GDAL](https://gdal.org)
+  On Linux, GDAL binary and Python binding are available through ubuntugis repository
   
-  On Windows, the most easiest way to install GDAL Python Binding is to use the packages build by Christoph Gohlke and available here. 
+  
+  On Windows, the most easiest way to install GDAL Python Binding is to use the packages build by Christoph Gohlke and available [here]
+(https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal). The ```*.whl``` package file contains a stand alone GDAL installation including all needed files (binaries, libraries, Python 
+binding, etc.). After downloading the correct version of .whl package based on the python version is installed on the operating system, install the wheel file:
+
 
 ## Citation
 (not published yet)
