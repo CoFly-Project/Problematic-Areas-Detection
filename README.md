@@ -12,9 +12,11 @@ This module detects problematic areas of a field and extracts their location bas
 ```
 python3 areas_dection.py ~IMAGE_PATH ~FOLDER_PATH ~IMAGES_DIR_PATH
 ```
-
+THE ~IMAGE_PATH corresponds to the 
   
-
+**Note: This module is based on the .npy files of ```Vegetation Indices``` module. 
+  
+  
 ## Dependencies 
 Install all the neccecary dependencies using ```pip3 install <package name>```
   
@@ -37,8 +39,6 @@ On Linux, GDAL binary and Python binding are available through ubuntugis reposit
 ```sudo apt-get install gdal-bin```
   
 ```sudo apt-get install python3-gdal```
-  
-```sudo apt-get install python3-numpy```
   
   
 On Windows, the most easiest way to install GDAL Python Binding is to use the packages build by Christoph Gohlke and available [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal). The ```*.whl``` package file contains a stand alone GDAL installation including all needed files (binaries, libraries, Python 
