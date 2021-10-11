@@ -26,8 +26,7 @@ Required packages:
   * scipy  
   * skimage
   * exif 
-  * json
-  * pandas  
+  * json  
   * scikit-learn
   * gdal
 
