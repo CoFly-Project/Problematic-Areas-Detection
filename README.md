@@ -53,7 +53,7 @@ To finalize the installation, it's necessary to define a new Windows environment
 
   
 ## Results
-The results are ```*.json``` files (one for every vegetation index) which contain all the necessary information about the centers of the detected problematic areas and the name of the caprtured image of the UAV with their corresponding visualizations.
+The results are ```*.json``` files (one for every vegetation index) which contain all the necessary information about the centers of the detected problematic areas and the name of the nearest captured image of the UAV with their corresponding visualizations.
 
 Example of a ```*.json``` file
 ```
