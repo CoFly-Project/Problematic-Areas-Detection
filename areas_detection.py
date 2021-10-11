@@ -9,7 +9,6 @@ import sys
 from osgeo import gdal, osr
 import json
 from sklearn.neighbors import NearestNeighbors
-import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.metrics import calinski_harabasz_score
@@ -140,7 +139,16 @@ for image in os.listdir(images_dir):
 		print('All the necessary info has been saved')
 
 
-lat_lon_imgs = pd.DataFrame(lat_lon_imgs)
+lat_lon_imgs_dict = {}
+for k,v in [(key, d[key]) for d in lat_lon_imgs for key in d]:
+  	if k not in lat_lon_imgs_dict: lat_lon_imgs_dict[k]=[v]
+  	else: lat_lon_imgs_dict[k].append(v)
+
+
+lat = np.array(lat_lon_imgs_dict['Lat']).reshape(-1, 1)
+lon = np.array(lat_lon_imgs_dict['Lon']).reshape(-1, 1)
+arr = np.concatenate((lat, lon), axis = 1)
+
 index_names = ['vari', 'ngrdi', 'gli', 'ngbdi']
 
 for index_name in index_names:
@@ -148,12 +156,12 @@ for index_name in index_names:
 	centers_cluster = find_areas(index)
 	centers_geo = find_Lat_Lon(img_path, centers_cluster)
 
-	knn = NearestNeighbors(n_neighbors=1, metric='haversine').fit(lat_lon_imgs[['Lat', 'Lon']])
+	knn = NearestNeighbors(n_neighbors=1, metric='haversine').fit(arr)
 	dist, idxs = knn.kneighbors(centers_geo)
 
 	data = []
 	for center, index in zip(centers_geo, idxs):
-		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": lat_lon_imgs['Image'].iloc[index].item()})
+		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": lat_lon_imgs_dict['Image'][index[0]]})
 
 	with open(os.path.join(save_dir, str(index_name)+'.json'), "w") as file:
 		json.dump(data, file, indent=4)
