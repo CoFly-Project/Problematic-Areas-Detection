@@ -81,7 +81,7 @@ The results of the ```Problematic Areas Detection``` module are ```*.png``` and 
 
 </table>
   
-  **Figure 1** Samples of the ```Problematic Areas Detection``` module: **(a) a given RGB input image** and the centers with blue color based on **(b) VARI, (c) GLI, (d) NGRDI** and **(e) NGBDI** vegetation indices.
+  **Figure 1** Results of the ```Problematic Areas Detection``` module: **(a) a given RGB input image** and the centers with blue color based on **(b) VARI, (c) GLI, (d) NGRDI** and **(e) NGBDI** vegetation indices.
   
   
   
