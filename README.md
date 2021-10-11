@@ -12,7 +12,8 @@ This module detects problematic areas of a field and extracts their location bas
 ```
 python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
 ```
-The ~IMAGE_PATH corresponds to the absolute path of the the examined field region and the ~PROJECT_PATH to the absolute path of the folder where the extracted results of the vegetation indices and their corresponding .npy filesare saved from the Vegetation Indices module. The ~IMAGES_DIR_PATH refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
+  
+The ~IMAGE_PATH corresponds to the absolute path of the the examined field region and the ~PROJECT_PATH to the absolute path of the folder where the extracted results of the vegetation indices and their corresponding .npy files are saved from the ```Vegetation Indices``` module. The ~IMAGES_DIR_PATH refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
   
 > Note: This module is based on the .npy files of ```Vegetation Indices``` module. 
   
@@ -26,7 +27,8 @@ Required packages:
   * scipy  
   * skimage
   * exif 
-  * json  
+  * json
+  * matplotlib
   * scikit-learn
   * gdal
 
@@ -47,7 +49,26 @@ binding, etc.). After downloading the correct version of .whl package based on t
 ~PATH_TO_WHL_PACKAGE python.exe -m pip install GDAL-X.X.X-cpXX-cpXXm-win_amd64.whl
 ```
 To finalize the installation, it's necessary to define a new Windows environment variables named GDAL_DATA pointing the directory ```C:\Program Files\GDAL\gdal-data``` and PROJ_LIB pointing ```C:\Program Files\GDAL\projlib```.
+
   
+## Results
+The results are ```*.json``` files (one for every vegetation index) which contain all the necessary information about the centers of the detected problematic areas and the name of the caprtured image of the UAV with their corresponding visualizations.
+
+Example of ```*.json``` file
+```
+  [
+    {
+        "Lat": XXX,
+        "Lon": XXX,
+        "Nearest_image": "XXX.jpeg"
+    },
+    {
+        "Lat": XXX,
+        "Lon": XXX,
+        "Nearest_image": "XXX.jpeg"
+    }
+]
+```
   
 ## Citation
 (not published yet)
