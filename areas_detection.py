@@ -125,18 +125,10 @@ def decimal_coords(coords, ref):
 	return decimal_degrees
 
 
-def winapi_path(dos_path, encoding=None):
-    if (not isinstance(dos_path, str) and encoding is not None): 
-        dos_path = dos_path.decode(encoding)
-    path = os.path.abspath(dos_path)
-    if path.startswith(u"\\\\"):
-        return u"\\\\?\\UNC\\" + path[2:]
-    return u"\\\\?\\" + path
 
-
-img_path = winapi_path(sys.argv[1])
-save_dir = winapi_path(sys.argv[2])
-images_dir = winapi_path(sys.argv[3])
+img_path = sys.argv[1]
+save_dir = sys.argv[2]
+images_dir = sys.argv[3]
 
 lat_lon_imgs = []
 for image in os.listdir(images_dir):
