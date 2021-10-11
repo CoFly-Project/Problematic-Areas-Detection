@@ -13,7 +13,7 @@ This module detects problematic areas of a field and extracts their location bas
 python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
 ```
   
-The ~IMAGE_PATH corresponds to the absolute path of the the examined field region and the ~PROJECT_PATH to the absolute path of the folder where the extracted results of the vegetation indices and their corresponding .npy files are saved from the ```Vegetation Indices``` module. The ~IMAGES_DIR_PATH refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
+The ~IMAGE_PATH corresponds to the absolute path of the the examined field region and the ~PROJECT_PATH to the absolute path of the folder where the extracted results of the vegetation indices and their corresponding ``*.npy``` files are saved from the ```Vegetation Indices``` module. The ~IMAGES_DIR_PATH refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
   
 > Note: This module is based on the ```*.npy``` files of ```Vegetation Indices``` module. 
   
@@ -43,11 +43,12 @@ Required packages:
   
   
 * On Windows, the most easiest way to install GDAL Python Binding is to use the packages build by Christoph Gohlke and available [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal). The ```*.whl``` package file contains a stand alone GDAL installation including all needed files (binaries, libraries, Python 
-binding, etc.). After downloading the correct version of .whl package based on the python version is installed on the operating system, install the wheel file:
+binding, etc.). After downloading the correct version of ```*.whl``` package based on the python version is installed on the operating system, install the wheel file with the following command:
 
 ```
 ~PATH_TO_WHL_PACKAGE python.exe -m pip install GDAL-X.X.X-cpXX-cpXXm-win_amd64.whl
 ```
+  
 To finalize the installation, it's necessary to define a new Windows environment variables named GDAL_DATA pointing the directory ```C:\Program Files\GDAL\gdal-data``` and PROJ_LIB pointing ```C:\Program Files\GDAL\projlib```.
 
   
