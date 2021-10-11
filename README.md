@@ -13,7 +13,7 @@ This module detects problematic areas of a field and extracts their location bas
 python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
 ```
   
-The ~IMAGE_PATH corresponds to the absolute path of the the examined field region and the ~PROJECT_PATH to the absolute path of the folder where the extracted results of the vegetation indices and their corresponding ``*.npy``` files are saved from the ```Vegetation Indices``` module. The ~IMAGES_DIR_PATH refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
+The ```~IMAGE_PATH``` corresponds to the absolute path of the the examined field region and the ```~PROJECT_PATH``` to the absolute path of the folder where the extracted results of the vegetation indices and their corresponding ```*.npy``` files are saved from the ```Vegetation Indices``` module. The ```~IMAGES_DIR_PATH``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
   
 > Note: This module is based on the ```*.npy``` files of ```Vegetation Indices``` module. 
   
