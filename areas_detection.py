@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 from scipy import io
 import os
+import matplotlib.pyplot as plt
 from scipy import ndimage
 from skimage import morphology, measure, filters
 from exif import Image
@@ -66,6 +67,18 @@ def find_areas(index):
 	opt_K = find_optimal_K(centers, num_pixels)
 	kmeans = KMeans(n_clusters=opt_K, random_state=0).fit(centers, sample_weight=num_pixels[1:])
 	centers_cluster = kmeans.cluster_centers_
+	
+	spot_size = np.sqrt(np.shape(index)[0] ** 2 + np.shape(index)[1] ** 2)
+	f = plt.figure()
+	f.set_figheight(index.shape[0] / f.get_dpi())
+	f.set_figwidth(index.shape[1] / f.get_dpi())
+	ax = plt.Axes(f, [0., 0., 1., 1.])
+	ax.set_axis_off()
+	f.add_axes(ax)
+	ax.imshow(np.clip(index, lower, upper), cmap="RdYlGn", aspect='auto')
+	ax.scatter(centers_cluster[:, 1], centers_cluster[:, 0], s=0.5 * spot_size, c='dodgerblue', edgecolors='black', linewidth=5)
+	f.savefig('{}/{}_centers.png'.format(save_dir, index_name))
+	plt.close()
 	return centers_cluster
 
 
