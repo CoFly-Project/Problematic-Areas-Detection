@@ -5,9 +5,7 @@
 
 This module detects problematic areas of a field and extracts their location based on a given vegetation index of the examined field region. As problematic are considered areas with lowest index values.
 
-![areas](https://user-images.githubusercontent.com/26482319/114700280-01d73380-9d2a-11eb-891f-8ee0f4e47593.jpg)
-
-
+  
 ## How to run
 ```
 python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
@@ -53,9 +51,29 @@ To finalize the installation, it's necessary to define a new Windows environment
 
   
 ## Results
-The results are ```*.json``` files (one for every vegetation index) which contain all the necessary information about the centers of the detected problematic areas and the name of the nearest captured image of the UAV with their corresponding visualizations.
+The results of the ```Problematic Areas Detection``` module are ```*.png``` and  ```*.json``` files (one for every vegetation index). The ```*.png``` files demonstrate the centers of each vegetation index and the ```*.json``` files contain all the necessary information about the geolocation of the centers and the name of the nearest captured image of the UAV.
+
   
-Example of a ```*.json``` file (2 detected centers)
+* Visualizations
+<table class="center">
+   <tr class="center">
+    <td><img src= "https://user-images.githubusercontent.com/80779522/136780438-3e6fc930-091e-45d6-b1bb-6022cdb0d541.png" =400x400 /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/136780429-a9aecdec-bc62-4504-a056-67bbcf8157d6.png" =400x400 /></td>
+   </tr>   
+   <tr align="center">
+    <td>(a) Vari centers</td>
+    <td>(b) GLI centers</td>
+     
+   <tr class="center">
+    <td><img src= "https://user-images.githubusercontent.com/80779522/136780437-0ae0b566-1cce-4640-9fd1-801efcf3a4a3.png" =400x400 /></td>  
+    <td><img src= "https://user-images.githubusercontent.com/80779522/136780432-c3a278d1-ef30-453c-8f88-d900b0d5a5e4.png" =400x400 /></td>
+   </tr>   
+   <tr align="center">
+    <td>(c) NGRDI centers</td>    
+    <td>(d) NGBDI centers</td>
+</table>
+     
+* Example of a ```*.json``` file (2 detected centers)
 ```
   [
     {
