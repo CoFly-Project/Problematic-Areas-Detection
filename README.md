@@ -10,26 +10,6 @@ The main objective of this module is to detect problematic areas of a field and 
 The results of the ```Problematic Areas Detection``` module are ```*.png``` and  ```*.json``` files (one for every vegetation index). The ```*.png``` files demonstrate the points of interest of each vegetation index and the ```*.json``` files contain all the necessary information about the geolocation of these points and the name of the nearest captured image of the UAV.
 
   
-## How to run
-  
-1. Clone this repo
-2. Open terminal on ~REPO_PATH
-3. Run:
-```
-python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
-```
-**ARGUMEΝTS**
-  
-  * ```~IMAGE_PATH:``` corresponds to the absolute path of the input image of the examined area
-  * ```~PROJECT_PATH:``` refers to the absolute path of the folder where the extracted results of the [__Vegetation Indices__](https://github.com/CoFly-Project/Vegetation-Indices) module are saved.
-  * ```~IMAGES_DIR_PATH:``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
-  
-  
-<!-- The ```~IMAGE_PATH``` corresponds to the absolute path of the input image and the ```~PROJECT_PATH``` to the absolute path of the folder where the extracted results of the ```Vegetation Indices''' module are saved. The ```~IMAGES_DIR_PATH``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV. -->
-  
-> Note: This module is based on the ```*.npy``` files of ```Vegetation Indices``` module. 
-  
-  
 ## Dependencies 
 Install all the neccecary dependencies using ```pip3 install <package name>```
   
@@ -63,6 +43,27 @@ binding, etc.). After downloading the correct version of ```*.whl``` package bas
   
 To finalize the installation, it's necessary to define a new Windows environment variables named GDAL_DATA pointing the directory ```C:\Program Files\GDAL\gdal-data``` and PROJ_LIB pointing ```C:\Program Files\GDAL\projlib```.
 
+  
+  
+## How to run
+  
+1. Clone this repo
+2. Open terminal on ~REPO_PATH
+3. Run:
+```
+python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
+```
+**ARGUMEΝTS**
+  
+  * ```~IMAGE_PATH:``` corresponds to the absolute path of the input image of the examined area
+  * ```~PROJECT_PATH:``` refers to the absolute path of the folder where the extracted results of the [__Vegetation Indices__](https://github.com/CoFly-Project/Vegetation-Indices) module are saved.
+  * ```~IMAGES_DIR_PATH:``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
+  
+  
+<!-- The ```~IMAGE_PATH``` corresponds to the absolute path of the input image and the ```~PROJECT_PATH``` to the absolute path of the folder where the extracted results of the ```Vegetation Indices''' module are saved. The ```~IMAGES_DIR_PATH``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV. -->
+  
+> Note: This module is based on the ```*.npy``` files of [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. 
+  
   
 ## Results
   
