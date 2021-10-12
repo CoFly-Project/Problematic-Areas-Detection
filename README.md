@@ -72,8 +72,8 @@ python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
   <table class="center">
    <tr class="center">
     <td><img src= "https://user-images.githubusercontent.com/80779522/136773402-d76cdbea-143c-42e4-9df9-10ec277c902a.png" align="center" width="300" height="276" /></td>
-    <td><img src= "https://user-images.githubusercontent.com/80779522/136780438-3e6fc930-091e-45d6-b1bb-6022cdb0d541.png" align="center" width="300" height="276" /></td>
-    <td><img src= "https://user-images.githubusercontent.com/80779522/136780429-a9aecdec-bc62-4504-a056-67bbcf8157d6.png" align="center" width="300" height="276" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/136968887-36be6efd-3523-43c5-871e-9f4cd12a5e0a.png" align="center" width="300" height="276" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/136968861-98640fd0-ba6d-44c2-a644-0d40a36350b1.png" align="center" width="300" height="276" /></td>
    </tr>   
    <tr align="center">
     <td>(a) Input image</td>
@@ -82,8 +82,8 @@ python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
  
   </tr>  
   <tr class="center">
-    <td><img src= "https://user-images.githubusercontent.com/80779522/136780437-0ae0b566-1cce-4640-9fd1-801efcf3a4a3.png" align="center" width="300" height="276" /></td>  
-    <td><img src= "https://user-images.githubusercontent.com/80779522/136780432-c3a278d1-ef30-453c-8f88-d900b0d5a5e4.png" align="center" width="300" height="276" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/136968876-cc0a3be7-634c-4cc1-8120-aba023e6241a.png" align="center" width="300" height="276" /></td>  
+    <td><img src= "https://user-images.githubusercontent.com/80779522/136968870-d4fb416d-8f5e-409c-871d-e2f680d8a7ea.png" align="center" width="300" height="276" /></td>
   </tr>
   <tr align="center">
     <td>(c) NGRDI centers</td>    
