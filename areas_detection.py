@@ -45,6 +45,7 @@ def find_optimal_K(centers, num_pixels):
 
 
 def find_areas(index):
+	# -- Mask nan Values -- #
 	index_clear = index[~np.isnan(index)]
 	lower = np.min(index_clear)
 	upper = np.max(index_clear)
@@ -62,7 +63,7 @@ def find_areas(index):
 	mask_white = np.copy(mask)
 	mask_white[empty_space] = 1
 	
-	# -- A connected components analysis is employed in order to detect connected components on the binary image that correspond to a single problematic area. -- #
+	# -- A connected components analysis is applied in order to detect connected components on the binary image of the problematic areas -- #
 	labels, nlabels = measure.label(mask, connectivity=2, background=0, return_num=True)
 	
 	# -- Find the center of each calculated area -- #
@@ -76,7 +77,7 @@ def find_areas(index):
 	kmeans = KMeans(n_clusters=opt_K, random_state=0).fit(centers, sample_weight=num_pixels[1:])
 	centers_cluster = kmeans.cluster_centers_
 
-	# -- Plot the VI map and save it in ~PRJECT_PATH -- #
+	# -- Plot the VI map and save it in ~PROJECT_PATH -- #
 	spot_size = np.sqrt(np.shape(index)[0] ** 2 + np.shape(index)[1] ** 2)
 	f = plt.figure()
 	f.set_figheight(index.shape[0] / f.get_dpi())
@@ -91,7 +92,7 @@ def find_areas(index):
 
 	return centers_cluster
 
-# -- Find the geolocation of the points of interest -- #
+# -- Find the geolocation of the points of interest (centers) -- #
 def find_Lat_Lon(img, centers):
 	ds = gdal.Open(img)
 	gt = ds.GetGeoTransform()
@@ -161,7 +162,7 @@ lat_lon_imgs['Lat'] = np.array(Latitude).reshape(-1, 1)
 lat_lon_imgs['Lon'] = np.array(Longtitude).reshape(-1, 1)
 lat_lon_imgs['Image'] = Names_images
 
-# -- This array is utilized in order to find the name of the nearest captured image in ~IMAGES_PATH -- #
+# -- This array is utilized in order to find the name of the nearest captured image in ~IMAGES_PATH based on KNN method -- #
 arr = np.concatenate((lat_lon_imgs['Lat'], lat_lon_imgs['Lon']), axis = 1)
 
 index_names = ['vari', 'ngrdi', 'gli', 'ngbdi']
@@ -172,7 +173,8 @@ for index_name in index_names:
 	
 	centers_cluster = find_areas(index)
 	centers_geo = find_Lat_Lon(img_path, centers_cluster)
-
+	
+	# -- KNN method -- #
 	knn = NearestNeighbors(n_neighbors=1, metric='haversine').fit(arr)
 	dist, idxs = knn.kneighbors(centers_geo)
 
@@ -180,7 +182,7 @@ for index_name in index_names:
 	for center, index in zip(centers_geo, idxs):
 		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": lat_lon_imgs['Image'][index[0]]})
 	
-	# -- Save a *.json file with the name of the vegetation_index in ~PROJECT_PATH -- #
+	# -- Save a *.json file with the name of each vegetation_index in ~PROJECT_PATH -- #
 	with open(os.path.join(save_dir, str(index_name)+'.json'), "w") as file:
 		json.dump(data, file, indent=4)
 	
