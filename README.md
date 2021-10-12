@@ -8,10 +8,7 @@
 The main objective of this module is to detect problematic areas of a field and extract their location based on a given vegetation index of the examined field region. As problematic are considered areas with lowest index values. 
 
 The results of the ```Problematic Areas Detection``` module are ```*.png``` and  ```*.json``` files (one for every vegetation index). The ```*.png``` files demonstrate the points of interest of each vegetation index and the ```*.json``` files contain all the necessary information about the geolocation of these points and the name of the nearest captured image of the UAV.
-  
-  
-  
-  is to provide a more thorough inspection on these individual spots of the examined area that seem to be problematic in terms of plant health and provide valuable information to the end-user.
+
   
 ## How to run
 ```
