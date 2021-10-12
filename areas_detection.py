@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 from scipy import io
 import os
+import matplotlib.pyplot as plt
 from scipy import ndimage
 from skimage import morphology, measure, filters
 from exif import Image
@@ -67,6 +68,20 @@ def find_areas(index):
 	opt_K = find_optimal_K(centers, num_pixels)
 	kmeans = KMeans(n_clusters=opt_K, random_state=0).fit(centers, sample_weight=num_pixels[1:])
 	centers_cluster = kmeans.cluster_centers_
+
+	# -- Plot (for tesing reasons) -- #
+	spot_size = np.sqrt(np.shape(index)[0] ** 2 + np.shape(index)[1] ** 2)
+	f = plt.figure()
+	f.set_figheight(index.shape[0] / f.get_dpi())
+	f.set_figwidth(index.shape[1] / f.get_dpi())
+	ax = plt.Axes(f, [0., 0., 1., 1.])
+	ax.set_axis_off()
+	f.add_axes(ax)
+	ax.imshow(np.clip(index, lower, upper), cmap="RdYlGn", aspect='auto')
+	ax.scatter(centers_cluster[:, 1], centers_cluster[:, 0], s=0.5 * spot_size, c='dodgerblue', edgecolors='black', linewidth=5)
+	f.savefig('{}/{}_centers.png'.format(save_dir, index_name), transparent = True)
+	plt.close()
+
 	return centers_cluster
 
 
@@ -113,22 +128,11 @@ def decimal_coords(coords, ref):
 	return decimal_degrees
 
 
-def winapi_path(dos_path, encoding=None):
-    if (not isinstance(dos_path, str) and encoding is not None): 
-        dos_path = dos_path.decode(encoding)
-    path = os.path.abspath(dos_path)
-    if path.startswith(u"\\\\"):
-        return u"\\\\?\\UNC\\" + path[2:]
-    return u"\\\\?\\" + path
+img_path = sys.argv[1]
+save_dir = sys.argv[2]
+images_dir = sys.argv[3]
 
-
-img_path = winapi_path(sys.argv[1])
-save_dir = winapi_path(sys.argv[2])
-images_dir = winapi_path(sys.argv[3])
-# os.environ['GDAL_DATA'] = './gdal'
-# os.environ['PROJ_LIB'] = './proj'
-
-
+lat_lon_imgs = {}
 Latitude = []
 Longtitude = []
 Names_images = []
@@ -145,7 +149,6 @@ for image in os.listdir(images_dir):
 	else:
 		print('All the necessary info has been saved')
 
-lat_lon_imgs = {}
 lat_lon_imgs['Lat'] = np.array(Latitude).reshape(-1, 1)
 lat_lon_imgs['Lon'] = np.array(Longtitude).reshape(-1, 1)
 lat_lon_imgs['Image'] = Names_images
@@ -168,5 +171,6 @@ for index_name in index_names:
 
 	with open(os.path.join(save_dir, str(index_name)+'.json'), "w") as file:
 		json.dump(data, file, indent=4)
-	break
+	
+
 print('Done!')
