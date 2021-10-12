@@ -7,7 +7,7 @@
 
 The main objective of this module is to detect problematic areas of a field and extract their location based on a given vegetation index of the examined field region. As problematic are considered areas with lowest index values. 
 
-The results of the ```Problematic Areas Detection``` module are ```*.png``` and  ```*.json``` files (one for every vegetation index). The ```*.png``` files demonstrate the points of interest of each vegetation index and the ```*.json``` files contain all the necessary information about the geolocation of these points and the name of the nearest captured image of the UAV.
+The results of the ```Problematic Areas Detection``` module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files demonstrate the points of interest based on vegetation indices and the ```*.json``` files contain all the necessary information about the geolocation of these points and the name of the nearest captured image of the UAV.
 
   
 ## Dependencies 
@@ -34,8 +34,7 @@ Required packages:
 ```sudo apt-get install python3-gdal```
   
   
-* On **Windows**, the most easiest way to install GDAL Python Binding is to use the packages build by Christoph Gohlke and available [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal). The ```*.whl``` package file contains a stand alone GDAL installation including all needed files (binaries, libraries, Python 
-binding, etc.). After downloading the correct version of ```*.whl``` package based on the python version is installed on the operating system, install the wheel file with the following command:
+* On **Windows**, the most easiest way to install GDAL Python Binding is to use the packages build by [Christoph Gohlke](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal). The ```*.whl``` package file contains a stand alone GDAL installation including all needed files (binaries, libraries, Python binding, etc.). After downloading the correct version of ```*.whl``` package based on the installed python version on the operating system, install the wheel file with the following command:
 
 ```
 ~PATH_TO_WHL_PACKAGE python.exe -m pip install GDAL-X.X.X-cpXX-cpXXm-win_amd64.whl
@@ -62,7 +61,7 @@ python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
   
 <!-- The ```~IMAGE_PATH``` corresponds to the absolute path of the input image and the ```~PROJECT_PATH``` to the absolute path of the folder where the extracted results of the ```Vegetation Indices''' module are saved. The ```~IMAGES_DIR_PATH``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV. -->
   
-> Note: This module is based on the ```*.npy``` files of [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. 
+> Note: This module is based on the extracted ```*.npy``` files of [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. 
   
   
 ## Results
