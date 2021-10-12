@@ -128,7 +128,7 @@ images_dir = winapi_path(sys.argv[3])
 # os.environ['GDAL_DATA'] = './gdal'
 # os.environ['PROJ_LIB'] = './proj'
 
-lat_lon_imgs = {}
+
 Latitude = []
 Longtitude = []
 Names_images = []
@@ -145,6 +145,7 @@ for image in os.listdir(images_dir):
 	else:
 		print('All the necessary info has been saved')
 
+lat_lon_imgs = {}
 lat_lon_imgs['Lat'] = np.array(Latitude).reshape(-1, 1)
 lat_lon_imgs['Lon'] = np.array(Longtitude).reshape(-1, 1)
 lat_lon_imgs['Image'] = Names_images
@@ -163,7 +164,7 @@ for index_name in index_names:
 
 	data = []
 	for center, index in zip(centers_geo, idxs):
-		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": str(lat_lon_imgs['Image'][index[0]])})
+		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": lat_lon_imgs['Image'][index[0]]})
 
 	with open(os.path.join(save_dir, str(index_name)+'.json'), "w") as file:
 		json.dump(data, file, indent=4)
