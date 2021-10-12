@@ -1,3 +1,4 @@
+# -- Import the necessary libraries -- #
 import numpy as np
 import cv2
 from scipy import io
@@ -48,28 +49,32 @@ def find_areas(index):
 	lower = np.min(index_clear)
 	upper = np.max(index_clear)
 	empty_space = index != index
-
-	thres = (lower + (upper + lower) / 2) / 2
+	
+	# -- Find Regions -- #
+	thres = (lower + (upper + lower) / 2) / 2 # -- 25% range -- # 
 	mask = threshold_index(index, thres)
 	mask = (mask / 255).astype(np.uint8)
 
 	mask = ndimage.morphology.binary_closing(mask, np.ones((5, 5)), iterations=1).astype(np.uint8)
 	mask = ndimage.morphology.binary_opening(mask, np.ones((5, 5)), iterations=1).astype(np.uint8)
-
+	
+	# -- Create binary image -- #
 	mask_white = np.copy(mask)
 	mask_white[empty_space] = 1
-
+	
+	# -- Find centers of all areas -- #
 	labels, nlabels = measure.label(mask, connectivity=2, background=0, return_num=True)
 	centers = ndimage.center_of_mass(mask, labels, np.arange(nlabels) + 1)
 	centers = np.array(centers)
 
 	_, num_pixels = np.unique(labels, return_counts=True)
-
+	
+	# -- Cluster centers -- #
 	opt_K = find_optimal_K(centers, num_pixels)
 	kmeans = KMeans(n_clusters=opt_K, random_state=0).fit(centers, sample_weight=num_pixels[1:])
 	centers_cluster = kmeans.cluster_centers_
 
-	# -- Plot (for tesing reasons) -- #
+	# -- Plot the VI map and save it in ~PRJECT_PATH -- #
 	spot_size = np.sqrt(np.shape(index)[0] ** 2 + np.shape(index)[1] ** 2)
 	f = plt.figure()
 	f.set_figheight(index.shape[0] / f.get_dpi())
@@ -84,7 +89,7 @@ def find_areas(index):
 
 	return centers_cluster
 
-
+# -- Find the geolocation of the points of interest -- #
 def find_Lat_Lon(img, centers):
 	ds = gdal.Open(img)
 	gt = ds.GetGeoTransform()
@@ -106,8 +111,6 @@ def find_Lat_Lon(img, centers):
 	new_cs = osr.SpatialReference()
 	new_cs.ImportFromWkt(wgs84_wkt)
 	transform = osr.CoordinateTransformation(old_cs,new_cs)
-	width = ds.RasterXSize
-	height = ds.RasterYSize
 
 	centers_lat_lon = []
 	for y_pixel, x_pixel in centers:
@@ -119,6 +122,7 @@ def find_Lat_Lon(img, centers):
 		centers_lat_lon.append([lat, lon])
 	return np.array(centers_lat_lon)
 
+# -- Extract the metadata of the images in ~IMAGES_PATH -- #
 def decimal_coords(coords, ref):
 	decimal_degrees = coords[0] + (coords[1] / 60) + (coords[2] / 3600)
 	if ref == "N" or ref == "E":
@@ -128,9 +132,11 @@ def decimal_coords(coords, ref):
 	return decimal_degrees
 
 
+# -- Read the given arguments -- #
 img_path = sys.argv[1]
 save_dir = sys.argv[2]
 images_dir = sys.argv[3]
+
 
 lat_lon_imgs = {}
 Latitude = []
@@ -153,12 +159,15 @@ lat_lon_imgs['Lat'] = np.array(Latitude).reshape(-1, 1)
 lat_lon_imgs['Lon'] = np.array(Longtitude).reshape(-1, 1)
 lat_lon_imgs['Image'] = Names_images
 
+# -- This array is utilized in order to find the name of the nearest captured image in ~IMAGES_PATH -- #
 arr = np.concatenate((lat_lon_imgs['Lat'], lat_lon_imgs['Lon']), axis = 1)
 
 index_names = ['vari', 'ngrdi', 'gli', 'ngbdi']
 
 for index_name in index_names:
+	# -- Load the necessary *.npy fles for each vegetation index -- #
 	index = np.load(os.path.join(save_dir, index_name + '_clipped.npy'))
+	
 	centers_cluster = find_areas(index)
 	centers_geo = find_Lat_Lon(img_path, centers_cluster)
 
@@ -168,7 +177,8 @@ for index_name in index_names:
 	data = []
 	for center, index in zip(centers_geo, idxs):
 		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": lat_lon_imgs['Image'][index[0]]})
-
+	
+	# -- Save a *.json file with the name of the vegetation_index in ~PROJECT_PATH -- #
 	with open(os.path.join(save_dir, str(index_name)+'.json'), "w") as file:
 		json.dump(data, file, indent=4)
 	
