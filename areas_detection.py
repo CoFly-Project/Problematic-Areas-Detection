@@ -16,13 +16,13 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.metrics import calinski_harabasz_score
 
-
+# -- Thresholding the index array, in order to separate the problematic areas -- #
 def threshold_index(index, tresh_value):
 	_, areas_mask = cv2.threshold(index, tresh_value, 1, cv2.THRESH_BINARY_INV)
 	areas_mask[areas_mask > 0] = 255
 	return areas_mask
 
-
+# -- Find the number of clusters based on the maximization of the Calinski-Harabasz score, in the interval [2, 10] -- #
 def find_optimal_K(centers, num_pixels):
 	metric = 'calinski'
 	scores = []
@@ -62,8 +62,10 @@ def find_areas(index):
 	mask_white = np.copy(mask)
 	mask_white[empty_space] = 1
 	
-	# -- Find centers of all areas -- #
+	# -- A connected components analysis is employed in order to detect connected components on the binary image that correspond to a single problematic area. -- #
 	labels, nlabels = measure.label(mask, connectivity=2, background=0, return_num=True)
+	
+	# -- Find the center of each calculated area -- #
 	centers = ndimage.center_of_mass(mask, labels, np.arange(nlabels) + 1)
 	centers = np.array(centers)
 
