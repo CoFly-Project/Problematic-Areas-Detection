@@ -2,7 +2,6 @@ import numpy as np
 import cv2
 from scipy import io
 import os
-import matplotlib.pyplot as plt
 from scipy import ndimage
 from skimage import morphology, measure, filters
 from exif import Image
@@ -10,6 +9,7 @@ import sys
 from osgeo import gdal, osr
 import json
 from sklearn.neighbors import NearestNeighbors
+import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.metrics import calinski_harabasz_score
@@ -67,18 +67,6 @@ def find_areas(index):
 	opt_K = find_optimal_K(centers, num_pixels)
 	kmeans = KMeans(n_clusters=opt_K, random_state=0).fit(centers, sample_weight=num_pixels[1:])
 	centers_cluster = kmeans.cluster_centers_
-	
-	spot_size = np.sqrt(np.shape(index)[0] ** 2 + np.shape(index)[1] ** 2)
-	f = plt.figure()
-	f.set_figheight(index.shape[0] / f.get_dpi())
-	f.set_figwidth(index.shape[1] / f.get_dpi())
-	ax = plt.Axes(f, [0., 0., 1., 1.])
-	ax.set_axis_off()
-	f.add_axes(ax)
-	ax.imshow(np.clip(index, lower, upper), cmap="RdYlGn", aspect='auto')
-	ax.scatter(centers_cluster[:, 1], centers_cluster[:, 0], s=0.5 * spot_size, c='dodgerblue', edgecolors='black', linewidth=5)
-	f.savefig('{}/{}_centers.png'.format(save_dir, index_name))
-	plt.close()
 	return centers_cluster
 
 
@@ -125,34 +113,43 @@ def decimal_coords(coords, ref):
 	return decimal_degrees
 
 
+def winapi_path(dos_path, encoding=None):
+    if (not isinstance(dos_path, str) and encoding is not None): 
+        dos_path = dos_path.decode(encoding)
+    path = os.path.abspath(dos_path)
+    if path.startswith(u"\\\\"):
+        return u"\\\\?\\UNC\\" + path[2:]
+    return u"\\\\?\\" + path
 
-img_path = sys.argv[1]
-save_dir = sys.argv[2]
-images_dir = sys.argv[3]
 
-lat_lon_imgs = []
+img_path = winapi_path(sys.argv[1])
+save_dir = winapi_path(sys.argv[2])
+images_dir = winapi_path(sys.argv[3])
+# os.environ['GDAL_DATA'] = './gdal'
+# os.environ['PROJ_LIB'] = './proj'
+
+lat_lon_imgs = {}
+Latitude = []
+Longtitude = []
+Names_images = []
 for image in os.listdir(images_dir):
 	img = Image(os.path.join(images_dir, image))
 	if img.has_exif:
 		try:
-			lat_, lon_ = decimal_coords(img.gps_latitude,img.gps_latitude_ref), decimal_coords(img.gps_longitude,img.gps_longitude_ref)
-			data = {'Lat': lat_, 'Lon': lon_, 'Image': image}
-			lat_lon_imgs.append(data)
+			lat, lon = decimal_coords(img.gps_latitude,img.gps_latitude_ref), decimal_coords(img.gps_longitude,img.gps_longitude_ref)
+			Latitude.append(lat)
+			Longtitude.append(lon)
+			Names_images.append(image)
 		except AttributeError:
 		  print('The {} has no metadata'.format(image))
 	else:
 		print('All the necessary info has been saved')
 
+lat_lon_imgs['Lat'] = np.array(Latitude).reshape(-1, 1)
+lat_lon_imgs['Lon'] = np.array(Longtitude).reshape(-1, 1)
+lat_lon_imgs['Image'] = Names_images
 
-lat_lon_imgs_dict = {}
-for k,v in [(key, d[key]) for d in lat_lon_imgs for key in d]:
-  	if k not in lat_lon_imgs_dict: lat_lon_imgs_dict[k]=[v]
-  	else: lat_lon_imgs_dict[k].append(v)
-
-
-lat = np.array(lat_lon_imgs_dict['Lat']).reshape(-1, 1)
-lon = np.array(lat_lon_imgs_dict['Lon']).reshape(-1, 1)
-arr = np.concatenate((lat, lon), axis = 1)
+arr = np.concatenate((lat_lon_imgs['Lat'], lat_lon_imgs['Lon']), axis = 1)
 
 index_names = ['vari', 'ngrdi', 'gli', 'ngbdi']
 
@@ -166,9 +163,9 @@ for index_name in index_names:
 
 	data = []
 	for center, index in zip(centers_geo, idxs):
-		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": lat_lon_imgs_dict['Image'][index[0]]})
+		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": str(lat_lon_imgs['Image'][index[0]])})
 
 	with open(os.path.join(save_dir, str(index_name)+'.json'), "w") as file:
 		json.dump(data, file, indent=4)
-
+	break
 print('Done!')
