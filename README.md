@@ -11,6 +11,10 @@ The results of the ```Problematic Areas Detection``` module are ```*.png``` and 
 
   
 ## How to run
+  
+1. Clone this repo
+2. Open terminal on ~REPO_PATH
+3. Run:
 ```
 python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
 ```
