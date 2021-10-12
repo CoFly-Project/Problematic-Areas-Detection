@@ -97,8 +97,6 @@ python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
   
   
   
-
-
      
 * **Example of a ```*.json``` file** (2 detected points of interest)
 ```
