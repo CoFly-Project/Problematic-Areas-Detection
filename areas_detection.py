@@ -16,7 +16,7 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.metrics import calinski_harabasz_score
 
-# -- Thresholding the index array, in order to separate the problematic areas -- #
+# -- Thresholding the index array -- #
 def threshold_index(index, tresh_value):
 	_, areas_mask = cv2.threshold(index, tresh_value, 1, cv2.THRESH_BINARY_INV)
 	areas_mask[areas_mask > 0] = 255
