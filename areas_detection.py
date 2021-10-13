@@ -125,7 +125,7 @@ def find_Lat_Lon(img, centers):
 		centers_lat_lon.append([lat, lon])
 	return np.array(centers_lat_lon)
 
-# -- Extract the metadata of the images in ~IMAGES_PATH -- #
+# -- Functions to format the latitude and longitude information of the images in ~IMAGES_PATH -- #
 def decimal_coords(coords, ref):
 	decimal_degrees = coords[0] + (coords[1] / 60) + (coords[2] / 3600)
 	if ref == "N" or ref == "E":
@@ -147,6 +147,7 @@ Longtitude = []
 Names_images = []
 for image in os.listdir(images_dir):
 	img = Image(os.path.join(images_dir, image))
+	# -- Extract the lattitude and longtitude information of each image in ~IMAGES_PATH -- #
 	if img.has_exif:
 		try:
 			lat, lon = decimal_coords(img.gps_latitude,img.gps_latitude_ref), decimal_coords(img.gps_longitude,img.gps_longitude_ref)
@@ -174,7 +175,7 @@ for index_name in index_names:
 	centers_cluster = find_areas(index)
 	centers_geo = find_Lat_Lon(img_path, centers_cluster)
 	
-	# -- KNN method -- #
+	# -- KNN method in order to find the nearest image of each center -- #
 	knn = NearestNeighbors(n_neighbors=1, metric='haversine').fit(arr)
 	dist, idxs = knn.kneighbors(centers_geo)
 
