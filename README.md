@@ -7,7 +7,7 @@
 
 The main objective of this module is to detect problematic areas of a field and extract their geolocation based on the extracted vegetation indices of the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. As problematic are considered areas with lowest index values and they are displayed with red color in VI maps. 
 
-The results of the ```Problematic Areas Detection``` module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files demonstrate the points of interest based on vegetation indices and the ```*.json``` files contain all the necessary information about the __*geolocation*__  of these points and the __*name of the nearest captured image*__ of the UAV.
+The results of the ```Problematic Areas Detection``` module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the points of interest based on VI maps and the ```*.json``` files contain all the necessary information about the __*geolocation*__  of these points and the __*name of the nearest captured image*__ of the UAV.
 
   
 ## Dependencies 
@@ -92,7 +92,7 @@ python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
 
 </table>
   
-  **Figure 1** Example of the ```Problematic Areas Detection``` module pipeline a given **RGB input image** and the **points of interest** with blue color based on the extracted VI maps by the ```Vegetation Indices``` module.
+  **Figure 1** Example of the ```Problematic Areas Detection``` module results based on a given **RGB input image** and the extracted **points of interest** with blue color based on the extracted VI maps by the ```Vegetation Indices``` module.
   
   
   
