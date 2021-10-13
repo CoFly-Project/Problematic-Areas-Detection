@@ -8,9 +8,11 @@
 <!-- The main objective of this module is to detect problematic areas of a field and extract their geolocation based on the extracted vegetation indices of the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. As problematic are considered areas with the lowest index values and they are displayed with red color in VI maps. 
  -->
   
-The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing as input the indices arrays (```*.npy files```) from [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed in order to detect the centers of problematic regions. As problematic are considered areas where the corresponding index value is low. Finally, to identify the geolocation of these points of interest, the RGB image of the examined area is utilized. 
+The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing as input the indices arrays (```*.npy files```) from [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed in order to detect the centers of problematic regions. As problematic are considered areas where the corresponding index value is low. Finally, to identify the geolocation of these points of interest, the RGB image of the examined area is utilized and to extract the nearest name image captured from the UAV the metadata of the images of the coverage mission of the examined area are used. 
   
-The results of this module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the points of interest on VI maps and the ```*.json``` files contain all the necessary information about the __*geolocation*__  of these points and the __*name of the nearest captured image*__ of the UAV.
+The results of this module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the detected points of interest on VI maps and the ```*.json``` files contain all the necessary information about:
+* the __*geolocation*__  of these points 
+* and the __*name of the nearest captured image*__ of the UAV.
 
   
 ## How to run
