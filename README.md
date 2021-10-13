@@ -8,43 +8,10 @@
 <!-- The main objective of this module is to detect problematic areas of a field and extract their geolocation based on the extracted vegetation indices of the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. As problematic are considered areas with the lowest index values and they are displayed with red color in VI maps. 
  -->
   
-The main objective 
-The results of the ```Problematic Areas Detection``` module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the points of interest based on VI maps and the ```*.json``` files contain all the necessary information about the __*geolocation*__  of these points and the __*name of the nearest captured image*__ of the UAV.
+The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing as input the indices arrays (```*.npy files```) from [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed in order to detect the centers of problematic regions. As problematic are considered areas where the corresponding index value is low. Finally, to identify the geolocation of these points of interest, the RGB image of the examined area is utilized. 
+  
+The results of this module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the points of interest on VI maps and the ```*.json``` files contain all the necessary information about the __*geolocation*__  of these points and the __*name of the nearest captured image*__ of the UAV.
 
-  
-## Dependencies 
-Install all the neccecary dependencies using ```pip3 install <package name>```
-  
-Required packages:
-  * opencv-python
-  * numpy
-  * scipy  
-  * skimage
-  * exif 
-  * json
-  * matplotlib
-  * scikit-learn
-  * gdal
-
-## How to install [GDAL](https://gdal.org)
-* On **Linux**, GDAL binary and Python binding are available through ubuntugis repository. 
-  
-```sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable```
-  
-```sudo apt-get install gdal-bin```
-  
-```sudo apt-get install python3-gdal```
-  
-  
-* On **Windows**, the most easiest way to install GDAL Python Binding is to use the packages build by [Christoph Gohlke](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal). The ```*.whl``` package file contains a stand alone GDAL installation including all needed files (binaries, libraries, Python binding, etc.). After downloading the correct version of ```*.whl``` package based on the installed python version on the operating system, install the wheel file with the following command:
-
-```
-~PATH_TO_WHL_PACKAGE python.exe -m pip install GDAL-X.X.X-cpXX-cpXXm-win_amd64.whl
-```
-  
-To finalize the installation, it's necessary to define a new Windows environment variables named GDAL_DATA pointing the directory ```C:\Program Files\GDAL\gdal-data``` and PROJ_LIB pointing ```C:\Program Files\GDAL\projlib```.
-
-  
   
 ## How to run
   
@@ -60,7 +27,6 @@ python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
   * ```~PROJECT_PATH:``` refers to the absolute path of the folder where the extracted results of the [__Vegetation Indices__](https://github.com/CoFly-Project/Vegetation-Indices) module are saved.
   * ```~IMAGES_DIR_PATH:``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
   
-The image of the examined area is utilized in order to find the geolocation of the points of interest.   
 <!-- The ```~IMAGE_PATH``` corresponds to the absolute path of the input image and the ```~PROJECT_PATH``` to the absolute path of the folder where the extracted results of the ```Vegetation Indices''' module are saved. The ```~IMAGES_DIR_PATH``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV. -->
   
 > Note: This module is based on the extracted ```*.npy``` files of [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. 
@@ -114,6 +80,39 @@ The image of the examined area is utilized in order to find the geolocation of t
     }
 ]
 ```
+
+## Dependencies 
+Install all the neccecary dependencies using ```pip3 install <package name>```
   
+Required packages:
+  * opencv-python
+  * numpy
+  * scipy  
+  * skimage
+  * exif 
+  * json
+  * matplotlib
+  * scikit-learn
+  * gdal
+
+**How to install [GDAL](https://gdal.org)**
+* On **Linux**, GDAL binary and Python binding are available through ubuntugis repository. 
+  
+```sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable```
+  
+```sudo apt-get install gdal-bin```
+  
+```sudo apt-get install python3-gdal```
+  
+  
+* On **Windows**, the most easiest way to install GDAL Python Binding is to use the packages build by [Christoph Gohlke](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal). The ```*.whl``` package file contains a stand alone GDAL installation including all needed files (binaries, libraries, Python binding, etc.). After downloading the correct version of ```*.whl``` package based on the installed python version on the operating system, install the wheel file with the following command:
+
+```
+~PATH_TO_WHL_PACKAGE python.exe -m pip install GDAL-X.X.X-cpXX-cpXXm-win_amd64.whl
+```
+  
+To finalize the installation, it's necessary to define a new Windows environment variables named GDAL_DATA pointing the directory ```C:\Program Files\GDAL\gdal-data``` and PROJ_LIB pointing ```C:\Program Files\GDAL\projlib```.
+
+
 ## Citation
 (not published yet)
