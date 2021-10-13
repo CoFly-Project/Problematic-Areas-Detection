@@ -101,14 +101,14 @@ python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
 ```
   [
     {
-        "Lat": XXX,
-        "Lon": XXX,
-        "Nearest_image": "XXX.jpeg"
+        "Lat": 40.573296620493295,
+        "Lon": 22.999613709891232,
+        "Nearest_image": "129.jpeg"
     },
     {
-        "Lat": XXX,
-        "Lon": XXX,
-        "Nearest_image": "XXX.jpeg"
+        "Lat": 40.57339888054105,
+        "Lon": 22.998593432140527,
+        "Nearest_image": "020.jpeg"
     }
 ]
 ```
