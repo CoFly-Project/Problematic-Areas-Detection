@@ -21,14 +21,14 @@ The results of this module are ```*.png``` and  ```*.json``` files (one for each
 2. Open terminal on ~REPO_PATH
 3. Run:
 ```
-python3 areas_dection.py ~IMAGE_PATH ~PROJECT_PATH ~IMAGES_DIR_PATH
+python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH --images_dir ~IMAGES_DIR_PATH
 ```
 **ARGUMEΝTS**
   
   * ```~IMAGE_PATH:``` corresponds to the absolute path of the input image of the examined area
   * ```~PROJECT_PATH:``` refers to the absolute path of the folder where the extracted results of the [__Vegetation Indices__](https://github.com/CoFly-Project/Vegetation-Indices) module are saved.
   * ```~IMAGES_DIR_PATH:``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
-  
+
 <!-- The ```~IMAGE_PATH``` corresponds to the absolute path of the input image and the ```~PROJECT_PATH``` to the absolute path of the folder where the extracted results of the ```Vegetation Indices''' module are saved. The ```~IMAGES_DIR_PATH``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV. -->
   
 > Note: This module is based on the extracted ```*.npy``` files of [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. 
