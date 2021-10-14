@@ -3,11 +3,12 @@ import numpy as np
 import cv2
 from scipy import io
 import os
+import glob
 import matplotlib.pyplot as plt
 from scipy import ndimage
 from skimage import morphology, measure, filters
 from exif import Image
-import sys
+import argparse
 from osgeo import gdal, osr
 import json
 from sklearn.neighbors import NearestNeighbors
@@ -136,9 +137,24 @@ def decimal_coords(coords, ref):
 
 
 # -- Read the given arguments -- #
-img_path = sys.argv[1]
-save_dir = sys.argv[2]
-images_dir = sys.argv[3]
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--input_image', required=True,
+			  help="Please enter the absolute path of the input image.")
+
+parser.add_argument('--project_dir', required=True,
+			  help="Please enter the absolute path of the folder which contains the *.npy files.")
+
+parser.add_argument('--images_dir', required=True,
+			  help="Please enter the absolute path of the images folder.")
+
+args = parser.parse_args()
+
+# -- Save the args to variables -- #
+img_path = args.input_image
+img_name = os.path.basename(img_path)
+save_dir = args.project_dir
+images_dir = args.images_dir
 
 
 lat_lon_imgs = {}
@@ -169,8 +185,11 @@ arr = np.concatenate((lat_lon_imgs['Lat'], lat_lon_imgs['Lon']), axis = 1)
 index_names = ['vari', 'ngrdi', 'gli', 'ngbdi']
 
 for index_name in index_names:
+	path, _ = os.path.splitext(npy_file)
+	index_name = os.path.basename(path)
+	
 	# -- Load the necessary *.npy fles for each vegetation index -- #
-	index = np.load(os.path.join(save_dir, index_name + '_clipped.npy'))
+	index = np.load(os.path.join(save_dir, npy_file))
 	
 	centers_cluster = find_areas(index)
 	centers_geo = find_Lat_Lon(img_path, centers_cluster)
