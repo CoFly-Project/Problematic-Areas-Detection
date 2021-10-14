@@ -142,7 +142,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--input_image', required=True,
 			  help="Please enter the absolute path of the input image.")
 
-parser.add_argument('--project_dir', required=True,
+parser.add_argument('--project_path', required=True,
 			  help="Please enter the absolute path of the folder which contains the *.npy files.")
 
 parser.add_argument('--images_dir', required=True,
@@ -153,7 +153,7 @@ args = parser.parse_args()
 # -- Save the args to variables -- #
 img_path = args.input_image
 img_name = os.path.basename(img_path)
-save_dir = args.project_dir
+save_dir = args.project_path
 images_dir = args.images_dir
 
 
@@ -184,7 +184,7 @@ arr = np.concatenate((lat_lon_imgs['Lat'], lat_lon_imgs['Lon']), axis = 1)
 
 index_names = ['vari', 'ngrdi', 'gli', 'ngbdi']
 
-for index_name in index_names:
+for npy_file in glob.glob(os.path.join(save_dir, '*npy')):
 	path, _ = os.path.splitext(npy_file)
 	index_name = os.path.basename(path)
 	
