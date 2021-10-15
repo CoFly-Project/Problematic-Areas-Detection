@@ -66,7 +66,7 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
   
   <figure>
   <p align="center">
-<img src="https://user-images.githubusercontent.com/80779522/137449428-c510ac24-8eb6-4d0a-b8ec-5cc1b44bcf03.png" width="2000" alt="Trulli">
+<img src="https://user-images.githubusercontent.com/80779522/137453916-1c895cb1-10ff-4868-8502-eaebfd77d1e9.png" width="2000" alt="Trulli">
 <figcaption align = "center"><p align="center"><b> 
   Figure 2. Example of the Problematic Areas Detection module pipeline with inputs a given RGB input image, the images from the coverage UAV mission and the extracted .npy files from the Vegetation-Indices module and the output are *.png files where the calculated centers of the problematic areas are annotated with blue color with their corresponding *.json files. </b></figcaption>
 </figure>
