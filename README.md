@@ -40,12 +40,10 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
  
   <table class="center">
    <tr class="center">
-    <td><img src= "https://user-images.githubusercontent.com/80779522/136773402-d76cdbea-143c-42e4-9df9-10ec277c902a.png" align="center" width="300" height="276" /></td>
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
    </tr>   
    <tr align="center">
-    <td>(a) Input image</td>
     <td>(b) VARI centers</td>
     <td>(c) GLI centers</td>    
  
@@ -60,12 +58,7 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
   </tr>
 
 </table>
-  
-  
-![ngbdi_centers](https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png)
-![ngrdi_centers](https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png)
-![vari_centers](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)
-![gli_centers](https://user-images.githubusercontent.com/80779522/137704573-72f9827b-a39c-4491-b0bf-4a946127facb.png)
+
   
 <!--   <figure>
   <p align="center">
