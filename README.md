@@ -37,14 +37,12 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 ## Results
   
   * **Visualizations**
-
-<!--  ![Problem](https://user-images.githubusercontent.com/80779522/137147004-5f870aaf-d00d-45a7-a213-fe9fc7ced473.png) -->
  
-<!--   <table class="center">
+  <table class="center">
    <tr class="center">
     <td><img src= "https://user-images.githubusercontent.com/80779522/136773402-d76cdbea-143c-42e4-9df9-10ec277c902a.png" align="center" width="300" height="276" /></td>
-    <td><img src= "https://user-images.githubusercontent.com/80779522/136968887-36be6efd-3523-43c5-871e-9f4cd12a5e0a.png" align="center" width="300" height="276" /></td>
-    <td><img src= "https://user-images.githubusercontent.com/80779522/136968861-98640fd0-ba6d-44c2-a644-0d40a36350b1.png" align="center" width="300" height="276" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
    </tr>   
    <tr align="center">
     <td>(a) Input image</td>
@@ -53,16 +51,21 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
  
   </tr>  
   <tr class="center">
-    <td><img src= "https://user-images.githubusercontent.com/80779522/136968876-cc0a3be7-634c-4cc1-8120-aba023e6241a.png" align="center" width="300" height="276" /></td>  
-    <td><img src= "https://user-images.githubusercontent.com/80779522/136968870-d4fb416d-8f5e-409c-871d-e2f680d8a7ea.png" align="center" width="300" height="276" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png" align="center" width="300" height="276" /></td>  
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png" align="center" width="300" height="276" /></td>
   </tr>
   <tr align="center">
     <td>(c) NGRDI centers</td>    
     <td>(d) NGBDI centers</td>
   </tr>
 
-</table> -->
+</table>
   
+  
+![ngbdi_centers](https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png)
+![ngrdi_centers](https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png)
+![vari_centers](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)
+![gli_centers](https://user-images.githubusercontent.com/80779522/137704573-72f9827b-a39c-4491-b0bf-4a946127facb.png)
   
 <!--   <figure>
   <p align="center">
