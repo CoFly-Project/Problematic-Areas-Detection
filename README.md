@@ -38,17 +38,18 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
   
   * **Visualizations**
  
-  <table class="center">
-   <tr class="center">
+<!--   <table >
+   <tr align="center">
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
    </tr>   
    <tr align="center">
-    <td>(b) VARI centers</td>
-    <td>(c) GLI centers</td>    
+    <td>(a) VARI centers</td>
+    <td>(b) GLI centers</td>    
  
+     
   </tr>  
-  <tr class="center">
+  <tr align="center">
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png" align="center" width="300" height="276" /></td>  
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png" align="center" width="300" height="276" /></td>
   </tr>
@@ -56,9 +57,20 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
     <td>(c) NGRDI centers</td>    
     <td>(d) NGBDI centers</td>
   </tr>
+</table> -->
 
-</table>
 
+
+  
+
+
+![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)  |  ![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)
+:-------------------------:|:-------------------------:
+(a) VARI centers           |  (b) GLI centers
+  
+![](https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png)  |  ![](https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png)
+:-------------------------:|:-------------------------:
+(c) NGRDI centers          |  (d) NGBDI centers
   
 <!--   <figure>
   <p align="center">
