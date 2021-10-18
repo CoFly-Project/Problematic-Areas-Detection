@@ -14,13 +14,16 @@ The results of this module are ```*.png``` and  ```*.json``` files (one for each
 * the __*geolocation*__  of these points 
 * and the __*name of the nearest captured UAV image*__.
 
-  
-<!--   <figure>
-  <p align="center">
-<img src="https://user-images.githubusercontent.com/80779522/137453916-1c895cb1-10ff-4868-8502-eaebfd77d1e9.png" width="2000" alt="Trulli">
+<p align="center">
+<img src="https://user-images.githubusercontent.com/80779522/137729318-21f3daf8-8e9f-423b-b517-e10ade60972b.png" width="480" />
 <figcaption align = "center"><p align="center"><b> 
-  Figure 2. Example of the Problematic Areas Detection module pipeline with inputs a given RGB input image, the images from the coverage UAV mission and the extracted .npy files from the Vegetation-Indices module and the output are *.png files where the calculated centers of the problematic areas are annotated with blue color with their corresponding *.json files. </b></figcaption>
-</figure> -->
+  Figure 1. Workflow of the Problematic-Areas-Detection module. </b></figcaption>
+</figure>
+    
+
+  
+<!--   Example of the Problematic Areas Detection module pipeline with inputs a given RGB input image, the images from the coverage UAV mission and the extracted .npy files from the Vegetation-Indices module and the output are *.png files where the calculated centers of the problematic areas are annotated with blue color with their corresponding *.json files -->
+  
   
 ## How to run
   
