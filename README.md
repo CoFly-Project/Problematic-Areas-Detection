@@ -9,17 +9,20 @@
  -->
   
 The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) from [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed to detect the centers of problematic regions. As problematic are considered areas where the corresponding index value is low. Also, this module is able to identify the geolocation of these points of interest based on the RGB image of the examined area and the name of the nearest image captured from the UAV, which is found based on the images' metadata of the UAV mission coverage. 
+
   
+<p align="center">
+<img src="https://user-images.githubusercontent.com/80779522/137868305-70d65562-b255-411e-b97f-12c28ec9a632.png" width="480" />
+<figcaption align = "center"><p align="center"><b> 
+  Figure 1. Workflow of the Problematic-Areas-Detection module. </b></figcaption>
+</figure>
+
+
 The results of this module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the detected points of interest on VI maps and the ```*.json``` files contain all the necessary information about:
 * the __*geolocation*__  of these points 
 * and the __*name of the nearest captured UAV image*__.
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/80779522/137729318-21f3daf8-8e9f-423b-b517-e10ade60972b.png" width="480" />
-<figcaption align = "center"><p align="center"><b> 
-  Figure 1. Workflow of the Problematic-Areas-Detection module. </b></figcaption>
-</figure>
-    
+
 
   
 <!--   Example of the Problematic Areas Detection module pipeline with inputs a given RGB input image, the images from the coverage UAV mission and the extracted .npy files from the Vegetation-Indices module and the output are *.png files where the calculated centers of the problematic areas are annotated with blue color with their corresponding *.json files -->
