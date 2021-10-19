@@ -41,18 +41,18 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 **ARGUMEΝTS**
   
   * ```~IMAGE_PATH:``` corresponds to the absolute path of the input image of the examined area
-  * ```~PROJECT_PATH:``` refers to the absolute path of the folder where the extracted results of the [__Vegetation Indices__](https://github.com/CoFly-Project/Vegetation-Indices) module are saved.
+  * ```~PROJECT_PATH:``` refers to the absolute path of the folder where the extracted results of the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module are saved.
   * ```~IMAGES_DIR_PATH:``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV.
 
 <!-- The ```~IMAGE_PATH``` corresponds to the absolute path of the input image and the ```~PROJECT_PATH``` to the absolute path of the folder where the extracted results of the ```Vegetation Indices''' module are saved. The ```~IMAGES_DIR_PATH``` refers to the absolute path of the folder which contains the collected images from the coverage mission of the UAV. -->
   
-> Note: This module is based on the extracted ```*.npy``` files of [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. 
+> Note: This module is based on the extracted __```*.npy```__ files of __*Vegetation Indices*__ module. 
   
   
 ## Results
   
   * **Visualizations**
-Example of the ```Problametic-Areas-Detection``` module of a given input RGB image in order to calculate the points of interest based on VARI index.
+Example of the ```Problametic-Areas-Detection``` module of a given input RGB image in order to calculate the points of interest based on __*VARI index*__.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/80779522/137885744-62781140-2cf7-429b-aee6-48da9ab98556.png" width="680" />
@@ -94,7 +94,7 @@ The calculated centers are annotated with blue color (Figure 2-c, Figure 3). In 
 :-------------------------:|:-------------------------:
 (c) NGRDI centers          |  (d) NGBDI centers -->
 <figcaption align = "center"><p align="center"><b> 
-  Figure 3. Results of the Problematic-Areas-Detection module. </b></figcaption>
+  Figure 3. VIs maps with annotated the calculated points of interest for each index. </b></figcaption>
   
 <!--   Results of the Problematic Areas Detection module pipeline with inputs a given RGB input image, the images from the coverage UAV mission and the extracted .npy files from the Vegetation-Indices module and the output are *.png files where the calculated centers of the problematic areas are annotated with blue color with their corresponding *.json files. -->
   
