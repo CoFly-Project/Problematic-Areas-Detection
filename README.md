@@ -8,7 +8,9 @@
 <!-- The main objective of this module is to detect problematic areas of a field and extract their geolocation based on the extracted vegetation indices of the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module. As problematic are considered areas with the lowest index values and they are displayed with red color in VI maps. 
  -->
   
-The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) from [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed to detect the problematic regions. As problematic are considered areas where the corresponding index value is low. For every detected area, the  center of mass is calculated leading to a set of points. Also, this module is able to identify the geolocation of these points based on the input image and the name of the nearest image captured from the UAV, which is found based on the images' metadata of the UAV mission coverage. 
+The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) from [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed to detect the problematic regions. As problematic are considered areas where the corresponding index value is low. For every detected area, the  center of mass is calculated leading to a set of points. 
+
+Also, this module is able to identify the geolocation of these points based on the input image and the name of the nearest image captured from the UAV, which is found based on the images' metadata of the UAV mission coverage. 
 
   
 <p align="center">
@@ -18,7 +20,7 @@ The main objective of the ```Problematic-Areas-Detection``` module is to identif
 </figure>
 
 
-The results of this module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the detected points of interest on VI maps and the ```*.json``` files contain all the necessary information about:
+The results of the ```Problematic-Areas-Detection``` module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the detected points of interest on VI maps and the ```*.json``` files contain all the necessary information about:
 * the __*geolocation*__  of these points 
 * and the __*name of the nearest captured UAV image*__.
 
@@ -58,7 +60,7 @@ Example of the ```Problametic-Areas-Detection``` module of a given input RGB ima
   Figure 2. Workflow of the Problematic-Areas-Detection module. </b></figcaption>
 </figure>
 
-The calculated centers are annotated with blue color (Figure 2-c). In Figure 3, we present the extracted results of this module for all VIs.
+The calculated centers are annotated with blue color (Figure 2-c, Figure 3). In Figure 3, we present the extracted results of this module for the four VIs.
 <!--   <table >
    <tr align="center">
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
