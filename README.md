@@ -58,33 +58,18 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 In Figure 3, we present the extracted results of this module for the four VIs.
   <table >
    <tr align="center">
-    <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" /></td>
-    <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" /></td>
-    <td><img src= "https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png" align="center" width="300" /></td>  
-    <td><img src= "https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png" align="center" width="300" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="200"/></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137921109-bbd040d6-6a16-4d09-9e12-a7dc8d265dc5.png" align="center" width="300" height="200"/></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png" align="center" width="300" height="200"/></td>  
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png" align="center" width="300" height="200"/></td>
    </tr>   
    <tr align="center">
     <td>(a) VARI</td>
     <td>(b) GLI</td>   
     <td>(c) NGRDI</td>    
     <td>(d) NGBDI</td>
- 
-<!--   </tr>  
-  <tr align="center">
-    <td><img src= "https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png" align="center" width="300" height="276" /></td>  
-    <td><img src= "https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png" align="center" width="300" height="276" /></td>
-  </tr>
-  <tr align="center">
-    <td>(c) NGRDI</td>    
-    <td>(d) NGBDI</td>
-  </tr> -->
-</table>
-
-
-<!-- ![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)|![](https://user-images.githubusercontent.com/80779522/137895279-6a7afd33-81a8-4490-bc00-af0a233f2ae2.png)|![](https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png)|![](https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png)
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-(b) VARI             |  (c) GLI           |(d) NGRDI         |  (e) NGBDI   -->
-<figcaption align = "center"><p align="center"><b> 
+     </table>
+     <figcaption align = "center"><p align="center"><b> 
   Figure 3. VIs maps with annotated the calculated points of interest. </b></figcaption>
   
 
