@@ -58,7 +58,7 @@ Example of the ```Problametic-Areas-Detection``` module of a given input RGB ima
   Figure 2. Workflow of the Problematic-Areas-Detection module. </b></figcaption>
 </figure>
 
-The calculated centers are annotated with blue color (Figure 2-c). In Figure 3, we present the extracted results of this module for all the VIs.
+The calculated centers are annotated with blue color (Figure 2-c). In Figure 3, we present the extracted results of this module for all VIs.
 <!--   <table >
    <tr align="center">
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
