@@ -14,7 +14,7 @@ Also, this module is able to identify the geolocation of these points based on t
 
   
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80779522/137868305-70d65562-b255-411e-b97f-12c28ec9a632.png" width="480" />
+<img src="https://user-images.githubusercontent.com/80779522/137868305-70d65562-b255-411e-b97f-12c28ec9a632.png" width="400" />
 <figcaption align = "center"><p align="center"><b> 
   Figure 1. Workflow of the Problematic-Areas-Detection module. </b></figcaption>
 </figure>
@@ -25,12 +25,12 @@ The results of the ```Problematic-Areas-Detection``` module are ```*.png``` and 
 * and the __*name of the nearest captured UAV image*__.
 
 
-Example of the ```Problametic-Areas-Detection``` module based on a given input RGB image in order to calculate the points of interest based on __*VARI index*__.
+In Figure 2, we present the results of the ```Problametic-Areas-Detection``` module based on a given input RGB image in order to calculate the points of interest based on __*VARI index*__.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80779522/137906993-f1b094cf-0deb-43dd-a682-43d469fcc0f5.png" width="680" />
+<img src="https://user-images.githubusercontent.com/80779522/137906993-f1b094cf-0deb-43dd-a682-43d469fcc0f5.png" width="450" />
 <figcaption align = "center"><p align="center"><b> 
-  Figure 2. Example of the pipeline for the Problematic-Areas-Detection module. The points of interest are annotated with blue color. </b></figcaption>
+  Figure 2. Results of the Problematic-Areas-Detection module. The points of interest are annotated with blue color. </b></figcaption>
 </figure>
   
   
@@ -56,32 +56,36 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
   * **Visualizations**
 
 In Figure 3, we present the extracted results of this module for the four VIs.
-<!--   <table >
+  <table >
    <tr align="center">
-    <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
-    <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" /></td>
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png" align="center" width="300" /></td>  
+    <td><img src= "https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png" align="center" width="300" /></td>
    </tr>   
    <tr align="center">
-    <td>(a) VARI centers</td>
-    <td>(b) GLI centers</td>    
+    <td>(a) VARI</td>
+    <td>(b) GLI</td>   
+    <td>(c) NGRDI</td>    
+    <td>(d) NGBDI</td>
  
-  </tr>  
+<!--   </tr>  
   <tr align="center">
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png" align="center" width="300" height="276" /></td>  
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png" align="center" width="300" height="276" /></td>
   </tr>
   <tr align="center">
-    <td>(c) NGRDI centers</td>    
-    <td>(d) NGBDI centers</td>
-  </tr>
-</table> -->
+    <td>(c) NGRDI</td>    
+    <td>(d) NGBDI</td>
+  </tr> -->
+</table>
 
 
-![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)|![](https://user-images.githubusercontent.com/80779522/137895279-6a7afd33-81a8-4490-bc00-af0a233f2ae2.png)|![](https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png)|![](https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png)
+<!-- ![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)|![](https://user-images.githubusercontent.com/80779522/137895279-6a7afd33-81a8-4490-bc00-af0a233f2ae2.png)|![](https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png)|![](https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png)
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-(b) VARI             |  (c) GLI           |(d) NGRDI         |  (e) NGBDI  
+(b) VARI             |  (c) GLI           |(d) NGRDI         |  (e) NGBDI   -->
 <figcaption align = "center"><p align="center"><b> 
-  Figure 3. VIs maps with annotated the calculated points of interest for each index. </b></figcaption>
+  Figure 3. VIs maps with annotated the calculated points of interest. </b></figcaption>
   
 
   
