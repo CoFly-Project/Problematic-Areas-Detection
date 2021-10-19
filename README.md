@@ -57,7 +57,7 @@ Example of the ```Problametic-Areas-Detection``` module of a given input RGB ima
 <p align="center">
 <img src="https://user-images.githubusercontent.com/80779522/137885744-62781140-2cf7-429b-aee6-48da9ab98556.png" width="680" />
 <figcaption align = "center"><p align="center"><b> 
-  Figure 2. Workflow of the Problematic-Areas-Detection module. </b></figcaption>
+  Figure 2. The results of the Problematic-Areas-Detection module for VARI index. </b></figcaption>
 </figure>
 
 The calculated centers are annotated with blue color (Figure 2-c, Figure 3). In Figure 3, we present the extracted results of this module for the four VIs.
