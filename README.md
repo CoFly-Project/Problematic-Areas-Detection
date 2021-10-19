@@ -83,7 +83,7 @@ The calculated centers are annotated with blue color (Figure 2-c, Figure 3). In 
 </table> -->
 
 
-![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)  |  ![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png) |![](https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png)  |  ![](https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png)
+![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)|![](https://user-images.githubusercontent.com/80779522/137895279-6a7afd33-81a8-4490-bc00-af0a233f2ae2.png)|![](https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png)|![](https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png)
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 (a) VARI centers           |  (b) GLI centers          |(c) NGRDI centers          |  (d) NGBDI centers
  
