@@ -25,7 +25,7 @@ The results of the ```Problematic-Areas-Detection``` module are ```*.png``` and 
 * and the __*name of the nearest captured UAV image*__.
 
 
-In Figure 2, we present the results of the ```Problametic-Areas-Detection``` module based on a given input RGB image in order to calculate the points of interest based on __*VARI index*__.
+In Figure 2, we present the results of the ```Problametic-Areas-Detection``` module based on a given input RGB image in order to calculate the points of interest based on __*VARI index*__, as extracted from the ```Vegetation-Indices``` module.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/80779522/137906993-f1b094cf-0deb-43dd-a682-43d469fcc0f5.png" width="450" />
