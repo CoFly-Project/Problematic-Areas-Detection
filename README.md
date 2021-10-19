@@ -50,7 +50,15 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 ## Results
   
   * **Visualizations**
- 
+Example of the ```Problametic-Areas-Detection``` module of a given input RGB image in order to calculate the points of interest based on VARI index.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/80779522/137885744-62781140-2cf7-429b-aee6-48da9ab98556.png" width="680" />
+<figcaption align = "center"><p align="center"><b> 
+  Figure 2. Workflow of the Problematic-Areas-Detection module. </b></figcaption>
+</figure>
+
+The calculated centers are annotated with blue color (Figure 2-c). In Figure 3, we present the extracted results of this module for all the VIs.
 <!--   <table >
    <tr align="center">
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="300" height="276" /></td>
@@ -73,10 +81,6 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 </table> -->
 
 
-
-  
-
-
 ![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png)  |  ![](https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png) |![](https://user-images.githubusercontent.com/80779522/137704566-7bde622c-1137-4841-9276-370c65ee663b.png)  |  ![](https://user-images.githubusercontent.com/80779522/137704559-f291824f-0d96-4568-acc8-46857197f6b6.png)
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 (a) VARI centers           |  (b) GLI centers          |(c) NGRDI centers          |  (d) NGBDI centers
@@ -88,7 +92,7 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 :-------------------------:|:-------------------------:
 (c) NGRDI centers          |  (d) NGBDI centers -->
 <figcaption align = "center"><p align="center"><b> 
-  Figure 2. Results of the Problematic-Areas-Detection module. The claculated centers are annotated with blue color. </b></figcaption>
+  Figure 3. Results of the Problematic-Areas-Detection module. </b></figcaption>
   
 <!--   Results of the Problematic Areas Detection module pipeline with inputs a given RGB input image, the images from the coverage UAV mission and the extracted .npy files from the Vegetation-Indices module and the output are *.png files where the calculated centers of the problematic areas are annotated with blue color with their corresponding *.json files. -->
   
