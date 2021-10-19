@@ -30,7 +30,7 @@ In Figure 2, we present the results of the ```Problametic-Areas-Detection``` mod
 <p align="center">
 <img src="https://user-images.githubusercontent.com/80779522/137906993-f1b094cf-0deb-43dd-a682-43d469fcc0f5.png" width="450" />
 <figcaption align = "center"><p align="center"><b> 
-  Figure 2. Results of the Problematic-Areas-Detection module. The points of interest are annotated with blue color. </b></figcaption>
+  Figure 2. The pipeline of the Problematic-Areas-Detection module as inputs (a) a given image, (b) the extracted VARI.npy file from the Vegetation-Indices module and the UAV images of the examined area. The outputs are (c) VARI image representation with the calculated points of interest and the corresponding json file (VARI.json). The points of interest are displayed with blue color. </b></figcaption>
 </figure>
   
   
@@ -70,7 +70,7 @@ In Figure 3, we present the extracted results of this module for the four VIs.
     <td>(d) NGBDI</td>
      </table>
      <figcaption align = "center"><p align="center"><b> 
-  Figure 3. VIs maps with annotated the calculated points of interest. </b></figcaption>
+  Figure 3. VIs maps with annotated the points of interest. </b></figcaption>
   
 
   
