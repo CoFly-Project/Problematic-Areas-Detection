@@ -44,7 +44,6 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
   
   * **Visualizations**
 
-In Figure 2, we present the extracted results of this module for the four VIs.
   <table >
    <tr align="center">
     <td><img src= "https://user-images.githubusercontent.com/80779522/137704570-c2febf14-7cae-437b-ae1b-6ffd44130445.png" align="center" width="210" height="180"/></td>
@@ -59,7 +58,7 @@ In Figure 2, we present the extracted results of this module for the four VIs.
     <td>(d) NGBDI</td>
      </table>
      <figcaption align = "center"><p align="center">
-  Figure 2. The calculated points of interest for each VI.
+  Figure 2. Detected points of interest (blue marks) for a set of different VIs.
     </figcaption>
   
 
