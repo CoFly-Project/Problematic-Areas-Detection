@@ -70,12 +70,12 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
     {
         "Lat": 40.573296620493295,
         "Lon": 22.999613709891232,
-        "Nearest_image": "129.jpeg"
+        "Nearest_image": "img_129.jpeg"
     },
     {
         "Lat": 40.57339888054105,
         "Lon": 22.998593432140527,
-        "Nearest_image": "020.jpeg"
+        "Nearest_image": "img_20.jpeg"
     }
 ]
 ```
