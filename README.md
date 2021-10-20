@@ -34,8 +34,10 @@ In Figure 1, we present the results of the ```Problametic-Areas-Detection``` mod
 </figure>
   
   
-  Workflow of the Problematic-Areas-Detection module.
+
 <!--   Figure 2. Pipeline of the Problematic-Areas-Detection module with inputs (a) a given image, (b) the VARI.npy file from Vegetation-Indices module and the UAV images. The outputs are (c) VARI image representation with the calculated points of interest and the corresponding json file (VARI.json). The points of interest are displayed with blue color. -->
+
+
 ## How to run
   
 1. Clone this repo
