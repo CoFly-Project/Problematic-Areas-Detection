@@ -127,3 +127,6 @@ To finalize the installation, it's necessary to define a new Windows environment
 
 ## Citation
 (not published yet)
+
+## Acknowledgment
+This research has been financed by the European Regional Development Fund of the European Union and Greek national funds through the Operational Program Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH - CREATE - INNOVATE (T1EDK-00636).
