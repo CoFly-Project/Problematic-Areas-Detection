@@ -15,7 +15,7 @@ The extracted files are named according to the corresponding VI, e.g. VARI.json.
   
   
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80779522/138088116-ab6f0606-0558-4377-a627-28a3393191b1.png" width="450" />
+<img src="https://user-images.githubusercontent.com/80779522/138094954-cffa6169-e677-4c67-8a54-2ed4a9bfa387.png" width="450" />
 <figcaption align = "center"><p align="center">
   Figure 1. Workflow of the Problematic-Areas-Detection module. The points of interest are displayed with blue color.</figcaption>
 </figure>
