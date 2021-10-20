@@ -11,7 +11,7 @@ The main objective of the ```Problematic-Areas-Detection``` module is to identif
 * the __*geolocation*__ of the point of interest
 * the __*filename*__ of the image captured closest to it
   
-The extracted files are named according to the corresponding VI, e.g. VARI.json. In Figure 1, we present the results of the ```Problametic-Areas-Detection``` module based on a given input RGB image in order to calculate the points of interest based on __*VARI index*__.
+The extracted files are named according to the corresponding VI, e.g. VARI.json. In Figure 1, we present the results of the ```Problametic Areas Detection``` module based on a given input RGB image in order to calculate the points of interest based on __*VARI index*__.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/80779522/138085442-986aac7a-1c63-47d6-a0f4-106397fa3beb.png" width="450" />
