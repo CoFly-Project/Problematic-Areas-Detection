@@ -3,29 +3,25 @@
   
 # Problematic Areas Detection
   
-The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) from [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed to detect the problematic regions. As problematic are considered areas where the corresponding index value is low. For every detected area, the  center of mass is calculated leading to a set of points, considered as points of interest. 
+The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) extracted from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed to detect the problematic regions. As problematic are considered areas where the corresponding index value is low. For every detected area, the  center of mass is calculated leading to a set of points, considered as points of interest. 
 
-Also, this module is able to identify the geolocation of these points based on the input image and the name of the nearest image captured from the UAV, which is found based on the images' metadata of the UAV mission coverage. 
 
+Τhe module takes as input the extracted VI array (npy file), the georeferenced stitched RGB image (tiff) and the path of the collected images (utilized for stitching). The output of the module is an image representation of the VI where the detected points of interest are annotated accordingly and a json file containing for each detected point the following information:
+
+* the __*geolocation*__ of the point of interest
+* the __*filename*__ of the image captured closest to it
   
-<!-- <p align="center">
-<img src="https://user-images.githubusercontent.com/80779522/137868305-70d65562-b255-411e-b97f-12c28ec9a632.png" width="400" />
-<figcaption align = "center"><p align="center"><b> 
-  Figure 1. Workflow of the Problematic-Areas-Detection module. </b></figcaption>
-</figure> -->
-
-
-In Figure 1, we present the results of the ```Problametic-Areas-Detection``` module based on a given input RGB image in order to calculate the points of interest based on __*VARI index*__.
+The extracted files are named according to the corresponding VI, e.g. VARI.json. In Figure 1, we present the results of the ```Problametic-Areas-Detection``` module based on a given input RGB image in order to calculate the points of interest based on __*VARI index*__.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80779522/137906993-f1b094cf-0deb-43dd-a682-43d469fcc0f5.png" width="450" />
+<img src="https://user-images.githubusercontent.com/80779522/138085442-986aac7a-1c63-47d6-a0f4-106397fa3beb.png" width="450" />
 <figcaption align = "center"><p align="center"><b> 
   Figure 1. Workflow of the Problematic-Areas-Detection module. The points of interest are displayed with blue color 1-(c). </b></figcaption>
 </figure>
   
-The results of the ```Problematic-Areas-Detection``` module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the detected points of interest on VI maps and the ```*.json``` files contain all the necessary information about:
+<!-- The results of the ```Problematic-Areas-Detection``` module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the detected points of interest on VI maps and the ```*.json``` files contain all the necessary information about:
 * the __*geolocation*__  of these points 
-* and the __*name of the nearest captured UAV image*__.
+* and the __*name of the nearest captured UAV image*__. -->
 
 <!--   Figure 2. Pipeline of the Problematic-Areas-Detection module with inputs (a) a given image, (b) the VARI.npy file from Vegetation-Indices module and the UAV images. The outputs are (c) VARI image representation with the calculated points of interest and the corresponding json file (VARI.json). The points of interest are displayed with blue color. -->
 
