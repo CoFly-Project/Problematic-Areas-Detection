@@ -11,7 +11,7 @@ The main objective of the ```Problematic-Areas-Detection``` module is to identif
 * the __*geolocation*__ of the point of interest
 * the __*filename*__ of the image captured closest to it
   
-The extracted files are named according to the corresponding VI, e.g. VARI.json.
+The extracted files are named according to the corresponding VI, e.g. VARI.json. In Figure 1, we present an overview of the Problematic-Areas-Detection module.
   
   
 <p align="center">
