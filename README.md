@@ -58,8 +58,9 @@ In Figure 2, we present the extracted results of this module for the four VIs.
     <td>(c) NGRDI</td>    
     <td>(d) NGBDI</td>
      </table>
-     <figcaption align = "center"><p align="center"><b> 
-  Figure 2. The calculated points of interest for each VI. </b></figcaption>
+     <figcaption align = "center"><p align="center">
+  Figure 2. The calculated points of interest for each VI.
+    </figcaption>
   
 
   
