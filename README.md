@@ -78,7 +78,7 @@ In Figure 2, we present the extracted results of this module for the four VIs.
      
 * **Example of a ```*.json``` file** (2 detected points of interest)
 ```
-  [
+[
     {
         "Lat": 40.573296620493295,
         "Lon": 22.999613709891232,
