@@ -45,9 +45,9 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 ```
 **ARGUMEΝTS**
   
-  * ```~IMAGE_PATH:```  refers to the absolute path of the input image of the examined area
-  * ```~PROJECT_PATH:``` corresponds to the absolute path of the extracted results from the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module.
-  * ```~IMAGES_DIR_PATH:``` refers to the absolute path of the folder that contains the collected images from the coverage mission of the UAV.
+  * ```~IMAGE_PATH:```  refers to the path of the input image of the examined area
+  * ```~PROJECT_PATH:``` corresponds to the path of the extracted results from the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module.
+  * ```~IMAGES_DIR_PATH:``` refers to the path of the folder that contains the collected images from the coverage mission of the UAV.
   
 > Note: From ~PROJECT_PATH only the __```*.npy```__ files of VIs are needed, as extracted from the __*Vegetation Indices*__ module. 
   
