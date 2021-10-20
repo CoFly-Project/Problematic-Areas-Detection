@@ -20,11 +20,6 @@ Also, this module is able to identify the geolocation of these points based on t
 </figure> -->
 
 
-The results of the ```Problematic-Areas-Detection``` module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the detected points of interest on VI maps and the ```*.json``` files contain all the necessary information about:
-* the __*geolocation*__  of these points 
-* and the __*name of the nearest captured UAV image*__.
-
-
 In Figure 1, we present the results of the ```Problametic-Areas-Detection``` module based on a given input RGB image in order to calculate the points of interest based on __*VARI index*__.
 
 <p align="center">
@@ -33,7 +28,9 @@ In Figure 1, we present the results of the ```Problametic-Areas-Detection``` mod
   Figure 1. Workflow of the Problematic-Areas-Detection module. The points of interest are displayed with blue color 1-(c). </b></figcaption>
 </figure>
   
-  
+The results of the ```Problematic-Areas-Detection``` module are ```*.png``` and  ```*.json``` files (one for each vegetation index). The ```*.png``` files display the detected points of interest on VI maps and the ```*.json``` files contain all the necessary information about:
+* the __*geolocation*__  of these points 
+* and the __*name of the nearest captured UAV image*__.
 
 <!--   Figure 2. Pipeline of the Problematic-Areas-Detection module with inputs (a) a given image, (b) the VARI.npy file from Vegetation-Indices module and the UAV images. The outputs are (c) VARI image representation with the calculated points of interest and the corresponding json file (VARI.json). The points of interest are displayed with blue color. -->
 
