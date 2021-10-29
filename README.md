@@ -81,6 +81,7 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 ## Dependencies 
 Install all the neccecary dependencies using ```pip3 install <package name>```
 
+Required packages:
 * opencv-python (version >= 4.5.3)
 * numpy (version >= 1.21.3)
 * scipy (version >= 1.4.1)
