@@ -12,7 +12,6 @@ import argparse
 from osgeo import gdal, osr
 import json
 from sklearn.neighbors import NearestNeighbors
-import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.metrics import calinski_harabasz_score
