@@ -84,14 +84,17 @@ Install all the neccecary dependencies using ```pip3 install <package name>```
 Required packages:
   * opencv-python (version >= 4.5.3)
   * numpy (version >= 1.21.3)
-  * scipy  
-  * skimage
-  * exif 
-  * json
-  * matplotlib (version >= 3.2.2)
-  * scikit-learn
-  * gdal
+  * scipy (version >= 1.4.1)
+  * gdal (version >= 3.2.2)
   * argparse (version >= 1.1)
+  * skimage (version >= 0.18.1)
+  * matplotlib (version >= 3.2.2)
+  * scikit-learn (version >= 0.24.0)
+  * json (version >= 2.0.9)
+  * exif 
+  
+  
+  
 
 
   
