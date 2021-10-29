@@ -81,7 +81,18 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 ## Dependencies 
 Install all the neccecary dependencies using ```pip3 install <package name>```
 
-<div align="center">
+* opencv-python (version >= 4.5.3)
+* numpy (version >= 1.21.3)
+* scipy (version >= 1.4.1)
+* gdal (version >= 3.2.2)
+* argparse (version >= 1.1)
+* skimage (version >= 0.18.1)
+* matplotlib (version >= 3.2.2)
+* scikit-learn (version >= 0.24.0)
+* json (version >= 2.0.9)
+* exif (version >= 1.3.1)
+
+<!-- <div align="center">
   
 |Package|Vesrion|
 | :---: | :---: |
@@ -98,7 +109,7 @@ exif | 1.3.1
   
 </div>
 <figcaption align = "center"><p align="center">Table 1. Required packages and their versions, respectively.</figcaption>
-</figure>
+</figure> -->
   
 
 **How to install [GDAL](https://gdal.org)**
