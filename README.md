@@ -82,15 +82,21 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 Install all the neccecary dependencies using ```pip3 install <package name>```
   
 Required packages:
-  * opencv-python
-  * numpy
+  * opencv-python (version >= 4.5.3)
+  * numpy (version >= 1.21.3)
   * scipy  
   * skimage
   * exif 
   * json
-  * matplotlib
+  * matplotlib (version >= 3.2.2)
   * scikit-learn
   * gdal
+  * argparse (version >= 1.1)
+
+
+  
+  
+  
 
 **How to install [GDAL](https://gdal.org)**
 * On **Linux**, GDAL binary and Python binding are available through ubuntugis repository. 
