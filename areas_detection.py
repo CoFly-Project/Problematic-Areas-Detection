@@ -198,8 +198,8 @@ for npy_file in glob.glob(os.path.join(save_dir, '*npy')):
 	dist, idxs = knn.kneighbors(centers_geo)
 
 	data = []
-	for center, index in zip(centers_geo, idxs):
-		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": lat_lon_imgs['Image'][index[0]]})
+	for center, index in zip(centers_geo, idxs.flatten()):
+		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": lat_lon_imgs['Image'][index]})
 	
 	# -- Save a *.json file with the name of each vegetation_index in ~PROJECT_PATH -- #
 	with open(os.path.join(save_dir, str(index_name)+'.json'), "w") as file:
