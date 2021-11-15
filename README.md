@@ -1,4 +1,4 @@
-<p align="center">
+<!-- <p align="center">
 <img src="https://user-images.githubusercontent.com/77329407/105342573-3040e900-5be9-11eb-92df-7c09392b1e0c.png" width="300" />
   
 # Problematic Areas Detection
@@ -112,7 +112,7 @@ exif | 1.3.1
 <figcaption align = "center"><p align="center">Table 1. Required packages and their versions, respectively.</figcaption>
 </figure> -->
   
-
+<!-- 
 **How to install [GDAL](https://gdal.org)**
 * On **Linux**, GDAL binary and Python binding are available through ubuntugis repository. 
   
@@ -136,4 +136,5 @@ To finalize the installation, it's necessary to define a new Windows environment
 (not published yet)
 
 ## Acknowledgment
-This research has been financed by the European Regional Development Fund of the European Union and Greek national funds through the Operational Program Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH - CREATE - INNOVATE (T1EDK-00636).
+This research has been financed by the European Regional Development Fund of the European Union and Greek national funds through the Operational Program Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH - CREATE - INNOVATE (T1EDK-00636). -->
+ -->
