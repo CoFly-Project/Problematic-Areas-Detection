@@ -1,14 +1,12 @@
-# -- Import the necessary libraries -- #
 import numpy as np
 import cv2
 from scipy import io
 import os
 import glob
-import matplotlib.pyplot as plt
 from scipy import ndimage
 from skimage import morphology, measure, filters
-from exif import Image
-import argparse
+import re
+import sys
 from osgeo import gdal, osr
 import json
 from sklearn.neighbors import NearestNeighbors
@@ -77,132 +75,67 @@ def find_areas(index):
 	kmeans = KMeans(n_clusters=opt_K, random_state=0).fit(centers, sample_weight=num_pixels[1:])
 	centers_cluster = kmeans.cluster_centers_
 
-	# -- Plot the VI map and save it in ~PROJECT_PATH -- #
-	spot_size = np.sqrt(np.shape(index)[0] ** 2 + np.shape(index)[1] ** 2)
-	f = plt.figure()
-	f.set_figheight(index.shape[0] / f.get_dpi())
-	f.set_figwidth(index.shape[1] / f.get_dpi())
-	ax = plt.Axes(f, [0., 0., 1., 1.])
-	ax.set_axis_off()
-	f.add_axes(ax)
-	ax.imshow(np.clip(index, lower, upper), cmap="RdYlGn", aspect='auto')
-	ax.scatter(centers_cluster[:, 1], centers_cluster[:, 0], s=0.5 * spot_size, c='dodgerblue', edgecolors='black', linewidth=5)
-	f.savefig('{}/{}_centers.png'.format(save_dir, index_name), transparent = True)
-	plt.close()
-
 	return centers_cluster
 
 # -- Find the geolocation of the points of interest (centers) -- #
-def find_Lat_Lon(img, centers):
-	ds = gdal.Open(img)
-	gt = ds.GetGeoTransform()
-	old_cs= osr.SpatialReference()
-	old_cs.ImportFromWkt(ds.GetProjectionRef())
-
-	wgs84_wkt = """
-	GEOGCS["WGS 84",
-		DATUM["WGS_1984",
-			SPHEROID["WGS 84",6378137,298.257223563,
-				AUTHORITY["EPSG","7030"]],
-			AUTHORITY["EPSG","6326"]],
-		PRIMEM["Greenwich",0,
-			AUTHORITY["EPSG","8901"]],
-		UNIT["degree",0.01745329251994328,
-			AUTHORITY["EPSG","9122"]],
-		AUTHORITY["EPSG","4326"]]"""
-
-	new_cs = osr.SpatialReference()
-	new_cs.ImportFromWkt(wgs84_wkt)
-	transform = osr.CoordinateTransformation(old_cs,new_cs)
+def find_Lat_Lon(raster, centers):
+	crs = osr.SpatialReference()
+	crs.ImportFromWkt(raster.GetProjectionRef())
+	crsGeo = osr.SpatialReference()
+	crsGeo.ImportFromEPSG(4326) # 4326 is the EPSG id of lat/long crs 
+	transform = osr.CoordinateTransformation(crs, crsGeo)
 
 	centers_lat_lon = []
 	for y_pixel, x_pixel in centers:
-		gt = ds.GetGeoTransform()
-		xoff, a, b, yoff, d, e = gt
+		xoff, a, b, yoff, d, e = raster.GetGeoTransform()
 		xp = a * x_pixel + b * y_pixel + xoff
 		yp = d * x_pixel + e * y_pixel + yoff
 		(lat, lon, z) = transform.TransformPoint(xp, yp)
 		centers_lat_lon.append([lat, lon])
+
 	return np.array(centers_lat_lon)
 
-# -- Functions to format the latitude and longitude information of the images in ~IMAGES_PATH -- #
-def decimal_coords(coords, ref):
-	decimal_degrees = coords[0] + (coords[1] / 60) + (coords[2] / 3600)
-	if ref == "N" or ref == "E":
-		decimal_degrees = decimal_degrees
-	else:
-		decimal_degrees = -decimal_degrees
-	return decimal_degrees
+def winapi_path(dos_path, encoding=None):
+    if (not isinstance(dos_path, str) and encoding is not None): 
+        dos_path = dos_path.decode(encoding)
+    path = os.path.abspath(dos_path)
+    if path.startswith(u"\\\\"):
+        return u"\\\\?\\UNC\\" + path[2:]
+    return u"\\\\?\\" + path
 
+project_path = winapi_path(sys.argv[1])
+txt_file = winapi_path(sys.argv[2])
+os.environ['GDAL_DATA'] = winapi_path(os.path.join(os.getcwd(), 'gdal'))
+os.environ['PROJ_LIB'] = winapi_path(os.path.join(os.getcwd(), 'proj'))
 
-# -- Read the given arguments -- #
-parser = argparse.ArgumentParser()
+with open(txt_file) as f:
+	names = f.read().splitlines()
+	lat = [float(i) for i in ([re.findall(r"\d+\.\d+", i)[0] for i in names])]
+	lon = [float(i) for i in ([re.findall(r"\d+\.\d+", i)[1] for i in names])]
+	f.close()
+	
+coordinates = np.array(list(zip(lat, lon)))
 
-parser.add_argument('--input_image', required=True,
-			  help="Please enter the absolute path of the input image.")
-
-parser.add_argument('--project_path', required=True,
-			  help="Please enter the absolute path of the folder which contains the *.npy files.")
-
-parser.add_argument('--images_dir', required=True,
-			  help="Please enter the absolute path of the images folder.")
-
-args = parser.parse_args()
-
-# -- Save the args to variables -- #
-img_path = args.input_image
-img_name = os.path.basename(img_path)
-save_dir = args.project_path
-images_dir = args.images_dir
-
-
-lat_lon_imgs = {}
-Latitude = []
-Longtitude = []
-Names_images = []
-for image in os.listdir(images_dir):
-	img = Image(os.path.join(images_dir, image))
-	# -- Extract the lattitude and longtitude information of each image in ~IMAGES_PATH -- #
-	if img.has_exif:
-		try:
-			lat, lon = decimal_coords(img.gps_latitude,img.gps_latitude_ref), decimal_coords(img.gps_longitude,img.gps_longitude_ref)
-			Latitude.append(lat)
-			Longtitude.append(lon)
-			Names_images.append(image)
-		except AttributeError:
-		  print('The {} has no metadata'.format(image))
-	else:
-		print('All the necessary info has been saved')
-
-lat_lon_imgs['Lat'] = np.array(Latitude).reshape(-1, 1)
-lat_lon_imgs['Lon'] = np.array(Longtitude).reshape(-1, 1)
-lat_lon_imgs['Image'] = Names_images
-
-# -- This array is utilized in order to find the name of the nearest captured image in ~IMAGES_PATH based on KNN method -- #
-arr = np.concatenate((lat_lon_imgs['Lat'], lat_lon_imgs['Lon']), axis = 1)
-
-index_names = ['vari', 'ngrdi', 'gli', 'ngbdi']
-
-for npy_file in glob.glob(os.path.join(save_dir, '*npy')):
-	path, _ = os.path.splitext(npy_file)
+for tiff_file in glob.glob(os.path.join(project_path, '*tif')):
+	path, _ = os.path.splitext(tiff_file)
 	index_name = os.path.basename(path)
-	
-	# -- Load the necessary *.npy fles for each vegetation index -- #
-	index = np.load(os.path.join(save_dir, npy_file))
-	
-	centers_cluster = find_areas(index)
-	centers_geo = find_Lat_Lon(img_path, centers_cluster)
+
+	ds = gdal.Open(os.path.join(project_path, tiff_file), gdal.GA_ReadOnly)
+	index_array = ds.GetRasterBand(5).ReadAsArray()
+		
+	centers_clusters = find_areas(index_array)
+	centers_geo = find_Lat_Lon(ds, centers_clusters)
 	
 	# -- KNN method in order to find the nearest image of each center -- #
-	knn = NearestNeighbors(n_neighbors=1, metric='haversine').fit(arr)
+	knn = NearestNeighbors(n_neighbors=1, metric='haversine').fit(coordinates)
 	dist, idxs = knn.kneighbors(centers_geo)
 
 	data = []
-	for center, index in zip(centers_geo, idxs.flatten()):
-		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": lat_lon_imgs['Image'][index]})
+	for center, idx in zip(centers_geo, idxs.flatten()):
+		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": names[idx]})
 	
-	# -- Save a *.json file with the name of each vegetation_index in ~PROJECT_PATH -- #
-	with open(os.path.join(save_dir, str(index_name)+'.json'), "w") as file:
+	# -- Save a *.json file with the name of each VI in ~PROJECT_PATH -- #
+	with open(os.path.join(project_path, str(index_name)+'.json'), "w") as file:
 		json.dump(data, file, indent=4)
 	
 
