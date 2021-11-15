@@ -114,7 +114,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--input_image', required=True,
 			  help="Please enter the absolute path of the image.")
 parser.add_argument('--index', required=True,
-			  help="Please enter the absolute path of the npy file that corresponds to the input image.")
+			  help="Please enter the absolute path of the *.npy file that corresponds to the input image.")
 args = parser.parse_args()
 
 save_dir = os.path.dirname(args.input_image)
