@@ -111,18 +111,13 @@ def find_Lat_Lon(raster, centers):
 
 # -- Read the given arguments -- #
 parser = argparse.ArgumentParser()
-parser.add_argument('--input_image', required=True,
-			  help="Please enter the absolute path of the image.")
-parser.add_argument('--index', required=True,
-			  help="Please enter the absolute path of the *.npy file that corresponds to the input image.")
+parser.add_argument('--input_image', required=True, help="Please enter the absolute path of the image.")
+parser.add_argument('--index', required=True, help="Please enter the absolute path of the *.npy file that corresponds to the input image.")
 args = parser.parse_args()
 
 save_dir = os.path.dirname(args.input_image)
 index_name, extension = os.path.splitext(os.path.basename(args.index))
 index_array = np.load(args.index)
-
-#os.environ['GDAL_DATA'] ='./gdal'
-#os.environ['PROJ_LIB'] ='./proj'
 
 ds = gdal.Open(args.input_image, gdal.GA_ReadOnly)
 centers_clusters = find_areas(index_array)
