@@ -33,8 +33,8 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
 **ARGUMEΝTS**
   ~PROJECT_PATH: corresponds to the path where the VIs npy arrays are stored (extracted from the Vegetation Indices module).
   * ```--input_image:```  refers to the path of the input image of the examined area
-  * ```--project_path:``` corresponds to the path where the VIs npy arrays are stored (extracted from the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module).
-  * ```--images_dir:``` refers to the path of the folder that contains the collected images from the coverage mission of the UAV.
+  * ```--index:``` corresponds to the path where the VIs npy arrays are stored (extracted from the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module).
+<!--   * ```--images_dir:``` refers to the path of the folder that contains the collected images from the coverage mission of the UAV. -->
     
   
 ## Results
@@ -74,9 +74,7 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
     }
 ]
 
-
 or 
-
 
 [
     {
