@@ -93,15 +93,30 @@ def find_areas(index):
 
 # -- Find the geolocation of the points of interest (centers) -- #
 def find_Lat_Lon(raster, centers):
-	crs = osr.SpatialReference()
-	crs.ImportFromWkt(raster.GetProjectionRef())
-	crsGeo = osr.SpatialReference()
-	crsGeo.ImportFromEPSG(4326) # 4326 is the EPSG id of lat/long crs 
-	transform = osr.CoordinateTransformation(crs, crsGeo)
+	gt = raster.GetGeoTransform()
+	old_cs= osr.SpatialReference()
+	old_cs.ImportFromWkt(raster.GetProjectionRef())
+
+	wgs84_wkt = """
+	GEOGCS["WGS 84",
+		DATUM["WGS_1984",
+			SPHEROID["WGS 84",6378137,298.257223563,
+				AUTHORITY["EPSG","7030"]],
+			AUTHORITY["EPSG","6326"]],
+		PRIMEM["Greenwich",0,
+			AUTHORITY["EPSG","8901"]],
+		UNIT["degree",0.01745329251994328,
+			AUTHORITY["EPSG","9122"]],
+		AUTHORITY["EPSG","4326"]]"""
+
+	new_cs = osr.SpatialReference()
+	new_cs.ImportFromWkt(wgs84_wkt)
+	transform = osr.CoordinateTransformation(old_cs,new_cs)
 
 	centers_lat_lon = []
 	for y_pixel, x_pixel in centers:
-		xoff, a, b, yoff, d, e = raster.GetGeoTransform()
+		gt = ds.GetGeoTransform()
+		xoff, a, b, yoff, d, e = gt
 		xp = a * x_pixel + b * y_pixel + xoff
 		yp = d * x_pixel + e * y_pixel + yoff
 		(lat, lon, z) = transform.TransformPoint(xp, yp)
