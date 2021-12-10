@@ -6,7 +6,7 @@
 The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) extracted from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/cofly-branch) module, a pixel-wise pipeline has been developed to detect the problematic regions. As problematic are considered areas where the corresponding index value is low. For every detected area, the  center of mass is calculated leading to a set of points, considered as points of interest. 
 
 
-Τhe module takes as input the extracted VI array (npy file), the georeferenced VI image representation (tiff), and the path of the *.txt file that contains the names of the UAV images (utilized for stitching). The output of this module is a json file containing for each detected point the following information:
+Τhe module takes as input the extracted VI arrays (npy file), the georeferenced VI image representations (tiff), and the path of *.txt file that contains the names of the UAV images (utilized for stitching). The output of this module is a json file containing for each detected point the following information:
 
 * the __*geolocation*__ of the point of interest
 * the __*filename*__ of the image captured closest to it
@@ -87,7 +87,7 @@ Required packages:
 * matplotlib (version >= 3.2.2)
 * scikit-learn (version >= 0.24.0)
 * json (version >= 2.0.9)
-* exif (version >= 1.3.1)
+
 
 **How to install [GDAL](https://gdal.org)**
 * On **Linux**, GDAL binary and Python binding are available through ubuntugis repository. 
