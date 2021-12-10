@@ -37,7 +37,7 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --index ~VI_ARRAY_PATH
   
 ## Results
   
-  * **Visualizations**
+### Visualizations
 
   <table >
    <tr align="center">
@@ -59,9 +59,10 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --index ~VI_ARRAY_PATH
 
   
      
-* **Example of a ```*.json``` file** (2 detected points of interest)
+### Example of a ```*.json``` file (2 detected points of interest)
 
-    Presuming that the VI image representation is georeferenced, the _*.json_ file has the following format:
+Presuming that the VI image representation is georeferenced, the _*.json_ file has the following format:
+    
 ```
 [
     {
@@ -75,7 +76,8 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --index ~VI_ARRAY_PATH
 ]
 ```
 
-Whether VI image representation is not georeferenced, the extracted _*.json_ file has the following format:
+Otherwise:
+
 ```
 [
     {
