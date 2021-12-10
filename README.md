@@ -13,11 +13,18 @@ The main objective of the ```Problematic-Areas-Detection``` module is to identif
 The extracted files are named according to the corresponding VI, e.g. VARI.json. In Figure 1, we present an overview of the Problematic-Areas-Detection module.
   
 <!--      "https://user-images.githubusercontent.com/80779522/138094954-cffa6169-e677-4c67-8a54-2ed4a9bfa387.png" width="450" /> --> 
-<p align="center">
+
+  
+  <p align="center">
+<img src="https://user-images.githubusercontent.com/80779522/145570181-047eb5d2-ae6a-482d-84f5-3a0040dd87d8.png"/>
+<figcaption align = "center"><p align="center">
+  Figure 1. Workflow of the Problematic-Areas-Detection module. The points of interest are displayed with blue color.</figcaption>
+</figure>  
+  <!-- <p align="center">
 <img src="https://user-images.githubusercontent.com/80779522/144032915-41b0588b-a86f-40ff-a4c6-5942505a15f9.png"/>
 <figcaption align = "center"><p align="center">
   Figure 1. Workflow of the Problematic-Areas-Detection module. The points of interest are displayed with blue color.</figcaption>
-</figure>
+</figure> -->
   
 
 
