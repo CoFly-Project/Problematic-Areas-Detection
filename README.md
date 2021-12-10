@@ -3,10 +3,10 @@
   
 # Problematic Areas Detection
   
-The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) extracted from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed to detect the problematic regions. As problematic are considered areas where the corresponding index value is low. For every detected area, the  center of mass is calculated leading to a set of points, considered as points of interest. 
+The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) extracted from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/main) module, a pixel-wise pipeline has been developed to detect the problematic regions. As problematic are considered areas where the corresponding index value is low. For every detected area, the  center of mass is calculated leading to a set of points, considered as points of interest. 
 
 
-Τhe module takes as input the extracted VI array (npy file), the georeferenced stitched RGB image (tiff) and the path of the collected images (utilized for stitching). The output of the module is an image representation of the VI where the detected points of interest are annotated accordingly and a json file containing for each detected point the 
+Τhe module takes as inputs the extracted *VI array (npy file)*, and the corresponding *VI image representation* as extracted from the from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/main). The output of the module is an image representation of the VI where the detected points of interest are annotated accordingly and a json file containing for each detected point the 
 ``` geolocation or coordinates``` in pixel level of the point of interest.
 <!-- * the __*filename*__ of the image captured closest to it -->
   
@@ -38,9 +38,8 @@ The extracted files are named according to the corresponding VI, e.g. VARI.json.
 python3 areas_dection.py --input_image ~IMAGE_PATH --index ~VI_ARRAY_PATH
 ```
 **ARGUMEΝTS**
-  ~PROJECT_PATH: corresponds to the path where the VIs npy arrays are stored (extracted from the Vegetation Indices module).
-  * ```--input_image:```  refers to the path of the input VI image representation of the examined area
-  * ```--index:``` refers to the path where the correspndinding VI arrays is stored (extracted from the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/main) module).
+  * ```--input_image```  refers to the path of the input VI image representation of the examined area
+  * ```--index``` refers to the path where the correspndinding VI array is stored
   
 ## Results
   
@@ -63,12 +62,10 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --index ~VI_ARRAY_PATH
   Figure 2. Detected points of interest (blue marks) for a set of different VIs.
     </figcaption>
   
-
-  
      
 ### Example of a ```*.json``` file (2 detected points of interest)
 
-Presuming that the VI image representation is georeferenced, the _*.json_ file has the following format:
+Presuming that VI image representation is georeferenced, the _*.json_ file has the following format:
     
 ```
 [
