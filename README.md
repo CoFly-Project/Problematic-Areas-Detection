@@ -28,14 +28,12 @@ The extracted files are named according to the corresponding VI, e.g. VARI.json.
 2. Open terminal on ~REPO_PATH
 3. Run:
 ```
-python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH --images_dir ~IMAGES_DIR_PATH
+python3 areas_dection.py --input_image ~IMAGE_PATH --index ~VI_ARRAY_PATH
 ```
 **ARGUMEΝTS**
   ~PROJECT_PATH: corresponds to the path where the VIs npy arrays are stored (extracted from the Vegetation Indices module).
-  * ```--input_image:```  refers to the path of the input image of the examined area
-  * ```--index:``` corresponds to the path where the VIs npy arrays are stored (extracted from the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module).
-<!--   * ```--images_dir:``` refers to the path of the folder that contains the collected images from the coverage mission of the UAV. -->
-    
+  * ```--input_image:```  refers to the path of the input VI image representation of the examined area
+  * ```--index:``` refers to the path where the correspndinding VI arrays is stored (extracted from the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/main) module).
   
 ## Results
   
@@ -62,6 +60,8 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
   
      
 * **Example of a ```*.json``` file** (2 detected points of interest)
+
+    Presuming that the VI image representation is georeferenced, the _*.json_ file has the following format:
 ```
 [
     {
@@ -73,9 +73,10 @@ python3 areas_dection.py --input_image ~IMAGE_PATH --project_path ~PROJECT_PATH 
         "Lon": 22.998593432140527
     }
 ]
+```
 
-or 
-
+Whether VI image representation is not georeferenced, the extracted _*.json_ file has the following format:
+```
 [
     {
         "X_pixel": 1040,
