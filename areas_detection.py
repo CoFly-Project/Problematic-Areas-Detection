@@ -41,7 +41,6 @@ def find_optimal_K(centers, num_pixels):
 	opt_K = clusters[np.argmax(scores)]
 	return opt_K
 
-
 def find_areas(index):
 	# -- Mask nan Values -- #
 	index_clear = index[~np.isnan(index)]
@@ -136,7 +135,7 @@ for tiff_file in glob.glob(os.path.join(project_path, '*tif')):
 	index_name = os.path.basename(path)
 
 	ds = gdal.Open(os.path.join(project_path, tiff_file), gdal.GA_ReadOnly)
-	index_array = ds.GetRasterBand(5).ReadAsArray()
+	index_array = np.load(os.path.join(project_path, index_name + '.npy'))
 		
 	centers_clusters = find_areas(index_array)
 	centers_geo = find_Lat_Lon(ds, centers_clusters)
@@ -153,5 +152,4 @@ for tiff_file in glob.glob(os.path.join(project_path, '*tif')):
 	with open(os.path.join(project_path, str(index_name)+'.json'), "w") as file:
 		json.dump(data, file, indent=4)
 	
-
 print('Done!')
