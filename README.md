@@ -6,12 +6,11 @@
 The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) extracted from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices) module, a pixel-wise pipeline has been developed to detect the problematic regions. As problematic are considered areas where the corresponding index value is low. For every detected area, the  center of mass is calculated leading to a set of points, considered as points of interest. 
 
 
-Τhe module takes as inputs the extracted *VI array (npy file)*, and the corresponding *VI image representation* as extracted from the from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/main). The output of the module is an image representation of the VI where the detected points of interest are annotated accordingly and a json file containing for each detected point the 
-``` geolocation``` or ```coordinates in pixel level``` of the point of interest.
+Τhe module takes as inputs the extracted *VI array (npy file)*, and the corresponding *VI image representation (tif file)* as extracted from the from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/main). The output of the module is an image representation of the VI where the detected points of interest are annotated accordingly and a json file containing for each detected point the ``` geolocation``` or ```coordinates in pixel level``` of the point of interest. The extracted files are named according to the corresponding VI, e.g. VARI.json. In Figure 1, we present an overview of the Problematic-Areas-Detection module.
+  
 <!-- * the __*filename*__ of the image captured closest to it -->
   
-The extracted files are named according to the corresponding VI, e.g. VARI.json. In Figure 1, we present an overview of the Problematic-Areas-Detection module.
-  
+
 <!--      "https://user-images.githubusercontent.com/80779522/138094954-cffa6169-e677-4c67-8a54-2ed4a9bfa387.png" width="450" /> --> 
 
   
