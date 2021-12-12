@@ -104,7 +104,10 @@ Required packages:
 ~PATH_TO_WHL_PACKAGE python.exe -m pip install GDAL-X.X.X-cpXX-cpXXm-win_amd64.whl
 ```
   
-To finalize the installation, it's necessary to define a new Windows environment variables named GDAL_DATA pointing the directory ```C:\Program Files\GDAL\gdal-data``` and PROJ_LIB pointing ```C:\Program Files\GDAL\projlib```.
+To finalize the installation, it's necessary to define new Windows environment variables:
+* **GDAL_DATA** pointing the directory ```C:\Program Files\GDAL\gdal-data```
+* **GDAL_DRIVER_PATH** pointing the directory ```C:\Program Files\GDAL\gdalplugins```
+* and **PROJ_LIB** pointing ```C:\Program Files\GDAL\projlib``
 
 
 ## Citation
