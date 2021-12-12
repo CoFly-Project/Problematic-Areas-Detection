@@ -107,7 +107,7 @@ Required packages:
 To finalize the installation, it's necessary to define new Windows environment variables:
 * **GDAL_DATA** pointing the directory ```C:\Program Files\GDAL\gdal-data```
 * **GDAL_DRIVER_PATH** pointing the directory ```C:\Program Files\GDAL\gdalplugins```
-* and **PROJ_LIB** pointing ```C:\Program Files\GDAL\projlib``
+* **PROJ_LIB** pointing ```C:\Program Files\GDAL\projlib``
 
 
 ## Citation
