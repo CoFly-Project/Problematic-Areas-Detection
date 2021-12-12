@@ -133,11 +133,11 @@ exif | 1.3.1
 **How to install [GDAL](https://gdal.org)**
 * On **Linux**, GDAL binary and Python binding are available through ubuntugis repository. 
   
-```sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable```
-  
-```sudo apt-get install gdal-bin```
-  
-```sudo apt-get install python3-gdal```
+```
+sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+sudo apt-get install gdal-bin
+sudo apt-get install python3-gdal
+```
   
   
 * On **Windows**, the easiest way to install GDAL Python Binding is to use the packages build by [Christoph Gohlke](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal). The ```*.whl``` package file contains a stand alone GDAL installation including all needed files (binaries, libraries, Python binding, etc.). After downloading the correct version of ```*.whl``` package based on the installed python version on the operating system, install the wheel file with the following command:
