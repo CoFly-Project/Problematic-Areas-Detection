@@ -11,7 +11,7 @@ The main objective of the ```Problematic-Areas-Detection``` module is to identif
 * its __*geolocation*__
 * the __*name*__ of the image captured closest to it
   
-The extracted files are named according to the corresponding name of VI, e.g. VARI.json. In Figure 1, we present an overview of the Problematic-Areas-Detection module.
+The extracted files are named according to the corresponding name of VI, e.g. _VARI.json_. In Figure 1, we present an overview of the Problematic-Areas-Detection module.
   
 <p align="center">
 <img src="https://user-images.githubusercontent.com/80779522/145773602-66576670-727a-491a-97bf-08aa2bfea2da.png" width="450" />
@@ -30,7 +30,7 @@ python3 areas_dection.py ~PROJECT_PATH ~TXT_PATH
 ```
 **ARGUMEΝTS**\
 * ```~PROJECT_PATH```: corresponds to the path where the results _(*.tif & *.npy files)_ from the the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/cofly-branch) module are stored
-* ```~TXT_PATH```: refers to the path of the txt file
+* ```~TXT_PATH```: refers to the path of the _*.txt file_
   
 ## Results
 
