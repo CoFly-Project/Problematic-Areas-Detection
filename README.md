@@ -61,12 +61,12 @@ python3 areas_dection.py ~PROJECT_PATH ~TXT_PATH
     {
         "Lat": 40.573296620493295,
         "Lon": 22.999613709891232,
-        "Nearest_image": "IMG_120_Lat=XXX,Lon=XXX.jpeg.jpeg"
+        "Nearest_image": "IMG_120_Lat=XXX,Lon=XXX.jpeg"
     },
     {
         "Lat": 40.57339888054105,
         "Lon": 22.998593432140527,
-        "Nearest_image": "IMG_39_Lat=XXX,Lon=XXX.jpeg.jpeg"
+        "Nearest_image": "IMG_39_Lat=XXX,Lon=XXX.jpeg"
     }
 ]
 ```
