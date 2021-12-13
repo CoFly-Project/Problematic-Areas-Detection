@@ -7,15 +7,16 @@ The main objective of the ```Problematic-Areas-Detection``` module is to identif
 
 
 Τhe module takes as inputs the extracted *VI array (npy file)*, and the corresponding *VI image representation (tif file)* as extracted from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/main). The output of the module is an image representation of the VI where the detected points of interest are annotated accordingly and a json file containing for each detected point the __``` geolocation```__ or __```pixel coordinates```__ of the point of interest. The extracted files are named according to the corresponding name of VI, e.g. VARI.json. In Figure 1, we present an overview of the Problematic-Areas-Detection module.
-  the corresponding name of VI
+  
+  
 <!-- * the __*filename*__ of the image captured closest to it -->
   
+<!-- https://user-images.githubusercontent.com/80779522/145570181-047eb5d2-ae6a-482d-84f5-3a0040dd87d8.png -->
+<!-- https://user-images.githubusercontent.com/80779522/138094954-cffa6169-e677-4c67-8a54-2ed4a9bfa387.png --> 
 
-<!--      "https://user-images.githubusercontent.com/80779522/138094954-cffa6169-e677-4c67-8a54-2ed4a9bfa387.png" width="450" /> --> 
-
-  
+  https://user-images.githubusercontent.com/80779522/145800146-1def5712-dbfa-4a91-96b2-cf709c0d965f.png
   <p align="center">
-<img src="https://user-images.githubusercontent.com/80779522/145570181-047eb5d2-ae6a-482d-84f5-3a0040dd87d8.png"/>
+<img src="https://user-images.githubusercontent.com/80779522/145800146-1def5712-dbfa-4a91-96b2-cf709c0d965f.png"/>
 <figcaption align = "center"><p align="center">
   Figure 1. Workflow of the Problematic-Areas-Detection module. The points of interest are displayed with blue color.</figcaption>
 </figure>  
