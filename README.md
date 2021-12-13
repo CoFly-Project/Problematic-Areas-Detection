@@ -37,8 +37,8 @@ The main objective of the ```Problematic-Areas-Detection``` module is to identif
 python3 areas_dection.py --input_image ~IMAGE_PATH --index ~VI_ARRAY_PATH
 ```
 **ARGUMEΝTS**
-  * ```--input_image```  refers to the path of the VI image representation __(*.tif)__
-  * ```--index``` refers to the path where the correspndinding VI array __(*.npy)__ is stored
+  * ```--input_image```:  refers to the path of the VI image representation __(*.tif)__
+  * ```--index```: refers to the path where the correspndinding VI array __(*.npy)__ is stored
   
 ## Results
   
