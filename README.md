@@ -29,7 +29,7 @@ The extracted files are named according to the corresponding name of VI, e.g. VA
 python3 areas_dection.py ~PROJECT_PATH ~TXT_PATH
 ```
 **ARGUMEΝTS**\
-* ```~PROJECT_PATH:```corresponds to the path where the results _(*.tif & *.npy files) from the the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/cofly-branch) module are stored
+* ```~PROJECT_PATH:```corresponds to the path where the results _(*.tif & *.npy files)_ from the the [```Vegetation Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/cofly-branch) module are stored
 * ```~TXT_PATH:``` refers to the path of the txt file
   
 ## Results
