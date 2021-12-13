@@ -6,7 +6,7 @@
 The main objective of the ```Problematic-Areas-Detection``` module is to identify individual field regions of the examined area that present poor conditions, in terms of vegetation  health. Utilizing the indices arrays (```*.npy files```) extracted from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/cofly-branch) module, a pixel-wise pipeline has been developed to detect the problematic regions. As problematic are considered areas where the corresponding index value is low. For every detected area, the  center of mass is calculated leading to a set of points, considered as points of interest. 
 
 
-Τhe module takes as input the extracted VI arrays (npy files), the VI image representations (tif files), and a *.txt file that contains the names of the images <!--(utilized for stitching)-->. The output of this module is a json file containing for each detected point:
+Τhe module takes as input the extracted VI arrays (npy files), the VI image representations (tif files), and a *.txt file that contains the names of the images. <!--(utilized for stitching).-->The output of this module is a json file containing for each detected point:
   
 * its __*geolocation*__
 * the __*name*__ of the image captured closest to it
