@@ -7,7 +7,7 @@ The main objective of the ```Problematic-Areas-Detection``` module is to identif
 
 
 <!--Τhe module takes as inputs the extracted *VI array (npy file)*, and its corresponding *VI image representation (tif file)* as extracted from the [```Vegetation-Indices```](https://github.com/CoFly-Project/Vegetation-Indices/tree/main). -->
-The output of the module is an image representation of the VI where the detected points of interest are annotated accordingly and a json file containing for each detected point the __``` geolocation```__ or __```pixel coordinates```__ of the point of interest. The extracted files are named according to the name of the input image and the name of VI, e.g. _img_name_VARI.json_. In Figure 1, we present an overview of the Problematic-Areas-Detection module.
+The output of the module is an image representation of the VI where the detected points of interest are annotated accordingly and a json file containing for each detected point the __``` geolocation```__ if the input image is georeferenced otherwise __```pixel coordinates```__ of the point of interest. The extracted files are named according to the name of the input image and the name of VI, e.g. _img_name_VARI.json_. In Figure 1, we present an overview of the Problematic-Areas-Detection module.
   
   
 <!-- * the __*filename*__ of the image captured closest to it -->
