@@ -111,7 +111,7 @@ Required packages:
 * matplotlib (version >= 3.2.2)
 * scikit-learn (version >= 0.24.0)
 * json (version >= 2.0.9)
-* exif (version >= 1.3.1)
+<!-- * exif (version >= 1.3.1) -->
 
 <!-- <div align="center">
   
