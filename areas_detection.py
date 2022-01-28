@@ -7,12 +7,13 @@ from scipy import ndimage
 from skimage import morphology, measure, filters
 import re
 import sys
-from osgeo import gdal, osr
+from osgeo import osr, gdal
 import json
 from sklearn.neighbors import NearestNeighbors
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.metrics import calinski_harabasz_score
+
 
 # -- Thresholding the index array -- #
 def threshold_index(index, tresh_value):
@@ -40,6 +41,7 @@ def find_optimal_K(centers, num_pixels):
 
 	opt_K = clusters[np.argmax(scores)]
 	return opt_K
+
 
 def find_areas(index):
 	# -- Mask nan Values -- #
@@ -72,55 +74,41 @@ def find_areas(index):
 	# -- Cluster centers -- #
 	opt_K = find_optimal_K(centers, num_pixels)
 	kmeans = KMeans(n_clusters=opt_K, random_state=0).fit(centers, sample_weight=num_pixels[1:])
-	centers_cluster = kmeans.cluster_centers_
+	centers_cluster = np.fliplr(kmeans.cluster_centers_)
 
 	return centers_cluster
 
 # -- Find the geolocation of the points of interest (centers) -- #
 def find_Lat_Lon(raster, centers):
-	gt = raster.GetGeoTransform()
-	old_cs= osr.SpatialReference()
-	old_cs.ImportFromWkt(raster.GetProjectionRef())
-
-	wgs84_wkt = """
-	GEOGCS["WGS 84",
-		DATUM["WGS_1984",
-			SPHEROID["WGS 84",6378137,298.257223563,
-				AUTHORITY["EPSG","7030"]],
-			AUTHORITY["EPSG","6326"]],
-		PRIMEM["Greenwich",0,
-			AUTHORITY["EPSG","8901"]],
-		UNIT["degree",0.01745329251994328,
-			AUTHORITY["EPSG","9122"]],
-		AUTHORITY["EPSG","4326"]]"""
-
-	new_cs = osr.SpatialReference()
-	new_cs.ImportFromWkt(wgs84_wkt)
-	transform = osr.CoordinateTransformation(old_cs,new_cs)
+	xoff, a, b, yoff, d, e = raster.GetGeoTransform()
+	crs = osr.SpatialReference()
+	crs.ImportFromWkt(raster.GetProjectionRef())
+	
+	crsGeo = osr.SpatialReference()
+	crsGeo.ImportFromProj4('+proj=longlat +datum=WGS84 +no_defs')
+	transform = osr.CoordinateTransformation(crs, crsGeo)
 
 	centers_lat_lon = []
-	for y_pixel, x_pixel in centers:
-		gt = ds.GetGeoTransform()
-		xoff, a, b, yoff, d, e = gt
-		xp = a * x_pixel + b * y_pixel + xoff
-		yp = d * x_pixel + e * y_pixel + yoff
+	for x_pixel, y_pixel in centers:
+		xp = a * x_pixel + b * y_pixel + a * 0.5 + b * 0.5 + xoff
+		yp = d * x_pixel + e * y_pixel + d * 0.5 + e * 0.5 + yoff
 		(lat, lon, z) = transform.TransformPoint(xp, yp)
 		centers_lat_lon.append([lat, lon])
 
-	return np.array(centers_lat_lon)
+	centers_geo = np.array(centers_lat_lon)
+	centers = np.fliplr(centers_geo)
+	return centers
 
 def winapi_path(dos_path, encoding=None):
-    if (not isinstance(dos_path, str) and encoding is not None): 
-        dos_path = dos_path.decode(encoding)
-    path = os.path.abspath(dos_path)
-    if path.startswith(u"\\\\"):
-        return u"\\\\?\\UNC\\" + path[2:]
-    return u"\\\\?\\" + path
+	if (not isinstance(dos_path, str) and encoding is not None): 
+		dos_path = dos_path.decode(encoding)
+	path = os.path.abspath(dos_path)
+	if path.startswith(u"\\\\"):
+		return u"\\\\?\\UNC\\" + path[2:]
+	return u"\\\\?\\" + path
 
 project_path = winapi_path(sys.argv[1])
 txt_file = winapi_path(sys.argv[2])
-os.environ['GDAL_DATA'] = winapi_path(os.path.join(os.getcwd(), 'gdal'))
-os.environ['PROJ_LIB'] = winapi_path(os.path.join(os.getcwd(), 'proj'))
 
 with open(txt_file) as f:
 	names = f.read().splitlines()
@@ -134,11 +122,13 @@ for tiff_file in glob.glob(os.path.join(project_path, '*tif')):
 	path, _ = os.path.splitext(tiff_file)
 	index_name = os.path.basename(path)
 
-	ds = gdal.Open(os.path.join(project_path, tiff_file), gdal.GA_ReadOnly)
+	ds = gdal.Open(os.path.join(project_path, tiff_file))
 	index_array = np.load(os.path.join(project_path, index_name + '.npy'))
 		
 	centers_clusters = find_areas(index_array)
 	centers_geo = find_Lat_Lon(ds, centers_clusters)
+	print('\nFinding centers of {} index at: \n{}\n'.format(index_name, centers_geo))
+	print('Total: {}\n'.format(np.shape(centers_geo)[0]))
 	
 	# -- KNN method in order to find the nearest image of each center -- #
 	knn = NearestNeighbors(n_neighbors=1, metric='haversine').fit(coordinates)
@@ -146,10 +136,13 @@ for tiff_file in glob.glob(os.path.join(project_path, '*tif')):
 
 	data = []
 	for center, idx in zip(centers_geo, idxs.flatten()):
-		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": names[idx]})
+		closest_img = names[idx]
+		name_img = closest_img.split(' ')
+		data.append({"Lat": center[0], "Lon": center[1], "Nearest_image": name_img[0]})
 	
 	# -- Save a *.json file with the name of each VI in ~PROJECT_PATH -- #
 	with open(os.path.join(project_path, str(index_name)+'.json'), "w") as file:
 		json.dump(data, file, indent=4)
 	
+
 print('Done!')
